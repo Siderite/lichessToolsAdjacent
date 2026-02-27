@@ -2,11 +2,11 @@
 <defs>
   <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
     <!-- Core glow: blur the shape itself -->
-    <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur1"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur1"/>
     
     <!-- Stronger outer glow layers (stacked for intensity) -->
-    <feGaussianBlur in="SourceGraphic" stdDeviation="5"   result="blur2"/>
-    <feGaussianBlur in="SourceGraphic" stdDeviation="8"   result="blur3"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="3"   result="blur2"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="4"   result="blur3"/>
     
     <!-- Optional: slight color boost / saturation for vivid neon -->
     <feComponentTransfer in="blur1" result="glow1">
