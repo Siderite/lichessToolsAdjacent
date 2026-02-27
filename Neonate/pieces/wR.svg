@@ -3,11 +3,11 @@
   <filter id="neon-glow" x="-30%" y="-30%" width="160%" height="160%">
     <feGaussianBlur in="SourceGraphic" stdDeviation="0.25" result="soft"/>
     <feComponentTransfer in="soft" result="boosted">
-      <feFuncA type="linear" slope="1.6"/>   <!-- slight brightness boost -->
+      <feFuncA type="linear" slope="1.6"/>
     </feComponentTransfer>
     <feMerge>
       <feMergeNode in="boosted"/>
-      <feMergeNode in="SourceGraphic"/>     <!-- sharp original stroke on top -->
+      <feMergeNode in="SourceGraphic"/>
     </feMerge>
   </filter>
 </defs>
