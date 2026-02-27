@@ -1,23 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="100%" height="100%" style="--piece-color: rgb(17, 255, 238);">
 <defs>
-  <filter id="neon-glow" x="-50%" y="-50%" width="200%" height="200%">
-    <!-- Core glow: blur the shape itself -->
-    <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur1"/>
-    
-    <!-- Stronger outer glow layers (stacked for intensity) -->
-    <feGaussianBlur in="SourceGraphic" stdDeviation="3"   result="blur2"/>
-    <feGaussianBlur in="SourceGraphic" stdDeviation="4"   result="blur3"/>
-    
-    <!-- Optional: slight color boost / saturation for vivid neon -->
-    <feComponentTransfer in="blur1" result="glow1">
-      <feFuncR type="linear" slope="1.4"/>
-      <feFuncG type="linear" slope="1.4"/>
-      <feFuncB type="linear" slope="1.4"/>
+  <filter id="neon-glow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="0.4" result="soft"/>
+    <feComponentTransfer in="soft" result="boosted">
+      <feFuncA type="linear" slope="1.6"/>   <!-- slight brightness boost -->
     </feComponentTransfer>
-    
-    <!-- Combine layers with screen blending for bright additive glow -->
-    <feBlend mode="screen" in="blur2" in2="blur3" result="glow2"/>
-    <feBlend mode="screen" in="glow1" in2="glow2"   result="final-glow"/>
+    <feMerge>
+      <feMergeNode in="boosted"/>
+      <feMergeNode in="SourceGraphic"/>     <!-- sharp original stroke on top -->
+    </feMerge>
   </filter>
 </defs>
 	<g style="opacity: 1; fill: var(--piece-color); fill-opacity: 0; fill-rule: evenodd; stroke: var(--piece-color); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1; filter: url(#neon-glow);">
