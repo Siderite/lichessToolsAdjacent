@@ -90,14 +90,15 @@ namespace AssetGenerator.Implementations
             var newPuzzleData = new ConcurrentDictionary<string, HashSet<string>>();
             logger.LogInformation("Filtering to most effective N-grams from {count}...", puzzleData.Count);
             lineNr = 0;
-            var startTime = DateTime.Now.Ticks;
+            var lastTime = DateTime.Now.Ticks;
             var minimizeThreshold = puzzles.Count / 100;
             foreach (var pair in puzzleData.OrderBy(p => p.Value.Count))
             {
                 lineNr++;
-                if (DateTime.Now.Ticks - startTime > 5000)
+                if (DateTime.Now.Ticks - lastTime > 5000)
                 {
                     logger.LogInformation(" processing: {LineNr}", lineNr);
+                    lastTime = DateTime.Now.Ticks;
                 }
                 HashSet<string> set = [.. pair.Value];
                 newPuzzleData[pair.Key] = set;
