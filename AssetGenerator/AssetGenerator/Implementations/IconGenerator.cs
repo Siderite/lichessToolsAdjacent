@@ -38,6 +38,7 @@ namespace AssetGenerator.Implementations
                 File.AppendAllText(jsIconsFile, "// generate this with IconGenerator\r\nlichessIcons = {\r\n");
                 File.AppendAllText(cssIconsFile, "/* generate this with IconGenerator */\r\n:root {\r\n");
 
+                var count = 0;
                 Regex.Matches(text, @"StartChar:\s+(?<name>[^\s]+)[\s\r\n]+Encoding:\s+(?<encoding1>\d+)\s+(?<encoding2>\d+)", RegexOptions.Singleline)
                     .Select(m => new
                     {
@@ -50,12 +51,14 @@ namespace AssetGenerator.Implementations
                     .ToList()
                     .ForEach(a =>
                     {
+                        count++;
                         var unicode = int.Parse(a.encoding1);
                         var name = a.name.Split('-').Select(s => char.ToUpperInvariant(s[0]) + s.Substring(1)).Aggregate((s1, s2) => s1 + s2);
                         File.AppendAllText(jsIconsFile, $"  {name}: '\\u{unicode:X4}',\r\n");
                         File.AppendAllText(cssIconsFile, $"  --icon-{name}: \"\\{unicode:X4}\";\r\n");
                     });
 
+                logger.LogInformation("{Count} icons generated successfully for JS and CSS.", count);
                 File.AppendAllText(jsIconsFile, "\r\n};");
                 File.AppendAllText(cssIconsFile, "\r\n}");
 

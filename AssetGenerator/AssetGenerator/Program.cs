@@ -10,6 +10,8 @@ namespace AssetGenerator
     {
         static async Task Main()
         {
+            Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+
             var services = new ServiceCollection();
             ConfigureServices(services);
             await services
