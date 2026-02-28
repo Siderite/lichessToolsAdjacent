@@ -1,0 +1,16 @@
+{
+  "name": "bundlechessops",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "node ./build.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chessops": "^0.15.0",
+    "esbuild": "^0.27.3"
+  }
+}

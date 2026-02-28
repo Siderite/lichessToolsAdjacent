@@ -1,0 +1,149 @@
+[Event "Vienna Game: Falkbeer Variation, Dark Vienna (GothamChess)"]
+1.e4 e5 2.Nc3 Nf6 3.d4
+
+[Event "Sicilian Defense: Kan Variation, Quiet Kan (ChickyCheck)"]
+1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 a6 5.a3
+
+[Event "King's Indian Attack: Sicilian Variation, Reversed Anti-Grunfeld (ChickyCheck)"]
+1.Nf3 d5 2.g3 c5 3.Bg2 f6
+
+[Event "French Defense: Classical Variation, Steinitz Variation, Hammer French (ChickyCheck)]
+1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.e5 Nfd7 5.Qh5
+
+[Event "Caro-Kann Defense: Advance Variation, Botvinnik-Carls Defense, Hammer Caro (ChickyCheck)"]
+1.e4 c6 2.d4 d5 3.e5 c5 4.dxc5 e6 5.Qh5
+
+[Event "Owen Defense, Teehee attack (Bunni)"]
+1.e4 b6 2.h4 Bb7 3.Nc3 e6 4.h5
+
+[Event "Montenegrin Defense (HighlyCruciferous)"]
+1.e4 d6 2.d4 Nf6 3.Nc3 a6
+
+[Event "King's Pawn Game: O'Neill Gambit Accepted, Lila Attack"]
+1.e4 b5 2.Bxb5 Bb7 3.Nc3 f5
+
+[Event "Indian Defense: London System, Graif Attack"]
+1.d4 Nf6 2.Nf3 e6 3.Bf4 Ne4 4.e3 g5
+
+[Event "English Opening: Symmetrical, Stockfish Anti-English Defense"]
+1.c4 c5 2.Nf3 Nc6 3.Nc3 Nf6 4.d4 cxd4 5.Nxd4 Qb6 6.Ndb5 a6 7.Na4 Qd8 8.Nbc3 b5
+
+[Event "Indian Defense: Dzindzi-Indian Defense, Djin Variation"]
+1.d4 Nf6 2.c4 e6 3.Nf3 a6 4.Nc3 c5 5.d5 b5
+
+[Event "Mexican Defense: Morpheus Defense (Adamisko)"]
+1.d4 Nc6 2.c4 Nf6 3.Nc3 d5 4.Bg5 Ne4
+
+[Event "Sicilian Defense: Closed, Fianchetto Variation, Rutabaga Variation (HighlyCruciferous)"]
+1.e4 c5 2.Nc3 Nc6 3.g3 e6 4.Bg2 Nge7 5.d3 Nd4 6.f4 Nec6 7.Nf3 Be7 8.O-O d6 9.Be3 Bf6
+
+[Event "Sicilian Defense: Alapin Variation, Smith-Morra Declined, Cruciferous Variation (HighlyCruciferous)"]
+1.e4 c5 2.c3 Nf6 3.e5 Nd5 4.d4 cxd4 5.Nf3 Qc7 6.cxd4 e6 7.Bd2 d6 8.Nc3 Nxc3 9.Bxc3 Bd7 10.Bd3 Bc6 11.O-O Bd5
+
+[Event "Sicilian Defense: Quinteros Variation, Accelerated Quinteros (HighlyCruciferous)"]
+1.e4 c5 2.Nf3 Qc7 3.d4 cxd4 4.Nxd4 e5
+
+[Event "Queen's Pawn Game: Silversmith Defense (HighlyCruciferous)"]
+1.d4 h5
+
+[Event "Queen's Pawn Game: Silversmith Defense, London Variation (HighlyCruciferous)"]
+1.d4 h5 2.Bf4 h4 3.e3 e5
+
+[Event "Queen's Pawn Game: Silversmith Defense, London Variation (HighlyCruciferous)"]
+1.d4 h5 2.Bf4 c5 3.e3 e5
+
+[Event "French Defense: Queen's Knight, Cauliflower Defense (HighlyCruciferous)"]
+1.Nc3 e6 2.e4 a6 3.d4 b5
+
+[Event "French Defense: Elevator Advance Variation (HighlyCruciferous)"]
+1.e4 e6 2.a4 d5 3.e5 c5 4.Ra3
+
+[Event "French Defense: Steiner Variation, Cruciferous Defense (HighlyCruciferous)"]
+1.e4 e6 2.c4 Nc6
+
+[Event "Horwitz Defense: Cruciferous Defense (HighlyCruciferous)"]
+1.d4 e6 2.c4 Nc6
+
+[Event "Four Knights Game: Trojan Horse (Chessbrah)"]
+1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6 4.Nd5
+
+[Event "Italian Game: Giuoco Piano, Giuoco Bellissimo (Chessbrah)"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.Qe2 Nf6 5.Ng5
+
+[Event "Italian Game: Giuoco Piano, Giuoco Bellissimo (Chessbrah)"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Qe2 Bc5 5.Ng5
+
+[Event "Ruy Lopez: Hambleton Defense (Chessbrah)"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 Qf6
+
+[Event "King's Pawn Game, Lepanto Opening (HighlyCruciferous)"]
+1.e4 e5 2.Be2
+
+[Event "King's Pawn Game: Hungarian Lepanto (HighlyCruciferous)"]
+1.e4 e5 2.Be2 Bc5 3.Nf3
+
+[Event "King's Pawn Game: Symmetrical Lepanto (HighlyCruciferous)"]
+1.e4 e5 2.Be2 Be7 3.d4
+
+[Event "Scandinavian Defense: Modern Variation, Xena trap (Adamisko)"]
+1.e4 d5 2.exd5 Nf6 3.Nc3 Nxd5 4.Nxd5 Qxd5 5.d4 Nc6 6.Nf3 Nb4
+
+[Event "Scandinavian Defense: Modern Variation, Xena trap (Adamisko)"]
+1.e4 d5 2.exd5 Nf6 3.Nc3 Nxd5 4.Nxd5 Qxd5 5.Nf3 Nc6 6.d4 Nb4
+
+[Event "Pirc Defense: Universal trap (Adamisko)"]
+1.e4 d6 2.d4 Nf6 3.Nc3 g6 4.Bf4 Bg7 5.e5 dxe5 6.dxe5 Qxd1+ 7.Rxd1
+
+[Event "Scandinavian Defense: Modern Variation, Saruman trap (Adamisko)"]
+1.e4 d5 2.exd5 Nf6 3.Bb5+ Nbd7 4.c4 a6 5.Ba4 b5 6.cxb5 Nxd5 7.bxa6 Bxa6
+
+[Event "Blackmar-Diemer Gambit: von Popiel Gambit, Zilbermints Attack (Zilbermints)"]
+1.d4 d5 2.e4 dxe4 3.Nc3 Nf6 4.Bg5 Bf5 5.Bxf6 exf6 6.g4 Bg6 7.Qe2 Nc6 8.Qb5
+
+[Event "Van't Kruijs Opening: Cow Variation (Anna Cramling)"]
+1.e3 e5 2.Ne2 d5 3.d3 Nf6 4.Nd2 Nc6 5.Ng3 Bd6 6.Nb3
+
+[Event "Van't Kruijs Opening: Cow Variation (Anna Cramling)"]
+1.e3 d5 2.d3 e5 3.Ne2
+
+[Event "Van't Kruijs Opening: Cow Variation (Anna Cramling)"]
+1.e3 d5 2.d3 e5 3.Ne2 Bd6
+
+[Event "Van't Kruijs Opening: Cow Variation (Anna Cramling)"]
+1.e3 d5 2.d3 e5 3.Ne2 Bd6 4.Ng3
+
+[Event "Van't Kruijs Opening: Cow Variation (Anna Cramling)"]
+1.e3 d5 2.d3 e5 3.Ne2 Bd6 4.Ng3 Nf6
+
+[Event "Van't Kruijs Opening: Cow Variation (Anna Cramling)"]
+1.e3 d5 2.d3 e5 3.Ne2 Bd6 4.Ng3 Nf6 5.Nd2
+
+[Event "Van't Kruijs Opening: Cow Variation (Anna Cramling)"]
+1.e3 d5 2.d3 e5 3.Ne2 Bd6 4.Ng3 Nf6 5.Nd2 O-O
+
+[Event "Van't Kruijs Opening: Cow Variation, Bull Variation (Anna Cramling)"]
+1.e3 d5 2.d3 e5 3.Ne2 Bd6 4.Ng3 Nf6 5.Nd2 O-O 6.Nb3
+
+[Event "Amar Opening: Creeping Variation (Averell Gamble)"]
+1.Nh3 d5 2.g3 e5 3.f3
+
+[Event "Caro-Kann Defense: Goat's Horns Defense" (Magnus Carlsen)]
+1.e4 c6 2.d4 a6
+
+[Event "Ware Opening: Vihsou System (Brandon Jacobson)"]
+1.a4 e5 2.Ra3
+
+[Event "Ware Opening: Vihsou System (Brandon Jacobson)"]
+1.a4 d5 2.Ra3
+
+[Event "Ware Opening: Vihsou System (Brandon Jacobson)"]
+1.a4 e6 2.Ra3
+
+[Event "Ware Defense: Vihsou System (Brandon Jacobson)"]
+1.e4 a5 2.d4 Ra6
+
+[Event "Ware Defense: Vihsou System (Brandon Jacobson)"]
+1.e4 a5 2.Nf3 Ra6
+
+[Event "Ware Defense: Vihsou System (Brandon Jacobson)"]
+1.d4 a5 2.c4 Ra6

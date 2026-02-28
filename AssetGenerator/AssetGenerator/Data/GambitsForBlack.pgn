@@ -1,0 +1,1203 @@
+[Event "Indian Defense: Budapest Defense, Alekhine Variation, Wikstrom Gambit"]
+1.d4 Nf6 2.c4 e5 3.dxe5 Ng4 4.e4 Nxe5 5.f4 Nbc6 6.fxe5 Qh4+
+
+[Event "Trompowsky Attack: Enhanced Deceiver Gambit (HighlyCruciferous)"]
+1.d4 Nf6 2.c4 a6 3.Bg5 Ne4 4.Bf4 e5
+
+[Event "Vienna Game: Max Lange Defense, Fisheye Gambit (Couseng3)"]
+1.e4 e5 2.Nc3 Nc6 3.Bc4 Bc5 4.Qg4 Nd4
+
+[Event "Nimzowitsch Defense, Stalker Gambit (Siderite)"]
+1.e4 Nc6 2.Nc3 Nf6 3.f4 d5 4.e5 Ne4 5.Nce2 Bg4 6.d3 Nc5 7.h3 Bh5
+
+[Event "Alekhine Defense: Scandinavian Variation, Stalker Gambit (Siderite)"]
+1.e4 Nf6 2.Nc3 d5 3.e5 Ne4 4.Nce2 Nc6 5.d3 Nc5 6.f4 Bg4 7.h3 Bh5
+
+[Event "Italian Game: Rosentreter Gambit, Rybasov Gambit (Arseniy Rybasov)"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.d4 Nxd4 5.Nxe5 Qe7 6.Nxf7 d5
+
+[Event "Indian Defense: Pyrenees Gambit, Carlsen Gambit (Magnus Carlsen)"]
+1.d4 Nf6 2.c4 b5 3.cxb5 c5
+
+[Event "Indian Defense: Pyrenees Gambit, Carlsen Gambit (Magnus Carlsen)"]
+1.c4 Nf6 2.d4 b5 3.cxb5 c5
+
+[Event "Three Knights Opening: Blackburne-Lazer Gambit (Lazerator)"]
+1.e4 e5 2.Nf3 Nc6 3.Nc3 Bc5 4.Bc4 Nd4
+
+[Event "Petrov's Defense: Italian Variation, Lazer-Quad Gambit (Lazerator)"]
+1.e4 e5 2.Nf3 Nf6 3.Bc4 b5
+
+[Event "King's Pawn: O'Neill Gambit"]
+1.e4 b5
+
+[Event "Petrov's Defense, Old Lazer-Quad Gambit (Lazerator)"]
+1.e4 e5 2.Nf3 Nf6 3.Nxe5 b5
+
+[Event "Horwitz Defense: Cruciferous Defense, Panaji Gambit (HighlyCruciferous)"]
+1.d4 e6 2.c4 Nc6 3.e4 e5 4.dxe5 d6
+
+[Event "Réti Opening: Advance Variation, Navara Gambit (Carsten Hansen)"]
+1.Nf3 d5 2.c4 d4 3.b4 g5
+
+[Event "Queen's Pawn Game: Accelerated London System, Nodnol Gambit (tttttttttee)"]
+1.d4 d5 2.Bf4 h5 3.h3 Nc6 4.e3 e5
+
+[Event "Silly William Gambit (Matt Bader)"]
+1.e4 e5 2.Qh5 Nc6 3.Bc4 g6 4.Qf3 f5 5.exf5 d5
+
+[Event "Benko Gambit: Zaitsev System, Graif-Benko Gambit (wgraif)"]
+1.d4 Nf6 2.c4 a6 3.Nc3 c5 4.d5 b5 5.cxb5 axb5 6.Nxb5 e6
+
+[Event "Elephant Gambit: Paulsen Countergambit, Chicken gambit (Siderite)"]
+1.e4 e5 2.Nf3 d5 3.exd5 e4 4.Qe2 Nf6 5.d3 Bb4+ 6.c3 O-O
+
+[Event "Trompowsky Attack, Goose Gambit (Jury)"]
+1.d4 Nf6 2.Bg5 b5 3.e3 c5
+
+[Event "Sicilian Defense: Alapin Variation, Smith-Morra Declined, Pianista Gambit (Siderite)"]
+1.e4 c5 2.c3 Nf6 3.e5 Nd5 4.d4 cxd4 5.cxd4 b5
+
+[Event "Modern Defense: Fianchetto Gambit, Modern Gambit (KaspaChess)"]
+1.d4 g6 2.e4 f5 3.exf5 d5
+
+[Event "Zukertort Opening: Invincible Walrus Gambit (Siderite)"]
+1.Nf3 f5 2.g3 Nf6 3.Bg2 e5 4.Nxe5 Nc6
+
+[Event "Zukertort Opening: Delayed Walrus Gambit (Adamisko)"]
+1.Nf3 Nf6 2.g3 e5 3.Nxe5 Nc6 4.Nxc6 dxc6
+
+[Event "Elephant Gambit, Lemming Gambit, Suicide Squad Gambit (Siderite/Adamisko)"]
+1.e4 e5 2.Nf3 d5 3.Nxe5 Nf6 4.exd5 Bd6 5.Nf3 c6 6.dxc6 O-O
+
+[Event "Elephant Gambit, Lemming Gambit, Suicide Squad Gambit Accepted (Siderite/Adamisko)"]
+1.e4 e5 2.Nf3 d5 3.Nxe5 Nf6 4.exd5 Bd6 5.Nf3 c6 6.dxc6 O-O 7.cxb7
+
+[Event "Elephant Gambit, Lemming Gambit, Suicide Squad Gambit Declined (Siderite/Adamisko)"]
+1.e4 e5 2.Nf3 d5 3.Nxe5 Nf6 4.exd5 Bd6 5.Nf3 c6 6.dxc6 O-O 7.Be2
+
+[Event "Englund Gambit Complex: Englund Gambit, Hambleton Gambit, Undefeated Gambit (Chessbrah)]
+1.d4 e5 2.dxe5 Nc6 3.Nf3 Qe7 4.Bf4 Qb4+ 5.Bd2 Qxb2 6.Nc3 Bb4 7.Rb1 Qxc3
+
+[Event "Scotch Game: Old Lazer gambit (Lazerator)"]
+1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4 d5 5.Nxc6 bxc6 6.exd5 Bc5
+
+[Event "Scotch Game: Lazer gambit (Lazerator)"]
+1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4 d5 5.Nxc6 bxc6 6.exd5 Bb4+
+
+[Event "Scotch Game: Double Lazer gambit (Lazerator)"]
+1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4 d5 5.exd5 Bc5
+
+[Event "Mexican Defense: Jigsaw Gambit (Adamisko)"]
+1.d4 Nc6 2.c4 Nf6 3.Nc3 d5 4.e3 e5
+
+[Event "Scandinavian Defense: Modern Variation,Joker Gambit (Adamisko)"]
+1.e4 d5 2.exd5 Nf6 3.Nf3 Bg4 4.Be2 Nxd5 5.O-O Nf4 6.h3 Bxh3
+
+[Event "Philidor Defense: Philidor Countergambit,Newark Gambit (Zilbermints)"]
+1.e4 e5 2.Nf3 d6 3.d4 f5 4.Bc4 b5
+
+[Event "Nimzo-Larsen Attack: Classical Variation,Rahway Gambit (Zilbermints)"]
+1.b3 d5 2.Bb2 e5 3.Bxe5 d4
+
+[Event "Indian Defense, Envy Gambit (wgraif)"]
+1.d4 Nf6 2.Bf4 c5 3.e3 Qb6 4.b3 cxd4 5.exd4 d6 6.Nf3 e5 7.dxe5 dxe5
+
+[Event "Indian Defense, Envy Gambit (wgraif)"]
+1.d4 Nf6 2.Bf4 c5 3.e3 Qb6 4.b3 cxd4 5.exd4 d6 6.c3 e5 7.dxe5 dxe5
+
+[Event "Caro-Kann Defense, Głø Krüller Gambit (Tangent)"]
+1.e4 c6 2.d4 e5
+
+[Event "Caro-Kann Defense, Głø Krüller Gambit, Wonfinp Gambit (Tangent)"]
+1.e4 c6 2.d4 e5 3.dxe5 d5
+
+[Event "Trompowsky Attack: Deceiver Gambit (wgraif)"]
+1.d4 Nf6 2.Bg5 Ne4 3.Bf4 e5
+
+[Event "Bird Opening: Morf Gambit (HighlyCruciferous)"]
+1.f4 d6 2.Nf3 e5 3.fxe5 g5
+
+[Event "Indian Defense: Wing Gambit (HighlyCruciferous)"]
+1.d4 Nf6 2.c4 a6 3.Nc3 b5
+
+[Event "Indian Defense: Wagon Gambit (HighlyCruciferous)"]
+1.d4 Nf6 2.c4 a6 3.Nc3 b5 4.cxb5 axb5 5.Nxb5 e5
+
+[Event "Scandinavian Defense: Icelandic-Palme Gambit, Radagast Gambit (Adamisko)"]
+1.e4 d5 2.exd5 Nf6 3.c4 e6 4.dxe6 Nc6
+
+[Event "Indian Defense: London Crusher 9000 Gambit (wgraif)"]
+1.d4 Nf6 2.Bf4 c5 3.e3 Qb6 4.Nc3 Qxb2 5.Nb5 cxd4
+
+[Event "Indian Defense: Budapest Defense, Adler Variation, Budapest-Graif Gambit (wgraif)"]
+1.d4 Nf6 2.c4 e5 3.dxe5 Ng4 4.Nf3 Nc6 5.Bf4 f6
+
+[Event "Rapport-Jobava System: Jobava-Graif Gambit (wgraif)"]
+1.d4 Nf6 2.Nc3 d5 3.Bf4 Nc6 4.Nb5 e5 5.dxe5 Ne4
+
+[Event "English Opening:Alphabet Gambit (wgraif)"]
+1.c4 a6 2.Nc3 b5 3.cxb5 axb5 4.Nxb5 d5
+
+[Event "Sodium Attack, Durkin Gambit"]
+1.Na3 e5 2.Nc4 Nc6 3.e4 f5
+
+[Event "Van Geet Opening, Sleipner Gambit"]
+1.Nc3 d5 2.e3 e5 3.d4 Bb4
+
+[Event "Van Geet Opening, Melleby Gambit"]
+1.Nc3 d5 2.f4 d4 3.Ne4 c5
+
+[Event "Van Geet Opening, Pfeiffer Gambit"]
+1.Nc3 d5 2.f4 d4 3.Ne4 e5
+
+[Event "Van Geet Opening, Damhaug Gambit"]
+1.Nc3 d5 2.f4 e5
+
+[Event "Van Geet Opening, Warsteiner Gambit"]
+1.Nc3 d5 2.f4 g5
+
+[Event "Van Geet Opening, Hergert Gambit"]
+1.Nc3 d6 2.f4 e5 3.fxe5 Nc6
+
+[Event "Van Geet Opening, Billockus-Johansen Gambit"]
+1.Nc3 e5 2.Nf3 Bc5
+
+[Event "Van Geet Opening, Hulsemann Gambit"]
+1.Nc3 e5 2.e3 d5 3.Qh5 Be6
+
+[Event "Van Geet Opening, Liebig Gambit"]
+1.Nc3 e5 2.e3 d5 3.Qh5 Nf6
+
+[Event "Reti Opening, Zilbermints Gambit"]
+1.Nf3 d5 2.c4 b5
+
+[Event "Barczay Gambit"]
+1.Nf3 d5 2.c4 c6 3.g3 Nf6 4.Bg2 dxc4
+
+[Event "Reti Opening, Advance Variation, Michel Gambit"]
+1.Nf3 d5 2.c4 d4 3.b4 c5
+
+[Event "Reti Opening, Reti Gambit"]
+1.Nf3 d5 2.c4 dxc4
+
+[Event "King's Indian Attack, Omega-Delta Gambit"]
+1.Nf3 d5 2.g3 e5
+
+[Event "Zukertort Opening, Vos Gambit"]
+1.Nf3 d6 2.d4 e5
+
+[Event "Ross Gambit"]
+1.Nf3 e5
+
+[Event "Zukertort Opening, Shabulov Gambit"]
+1.Nf3 e6 2.c4 a6 3.Nc3 c5 4.g3 b5
+
+[Event "Herrstrom Gambit"]
+1.Nf3 g5
+
+[Event "Ware Opening, Wing Gambit"]
+1.a4 b5 2.axb5 Bb7
+
+[Event "Ware Opening, Cologne Gambit"]
+1.a4 b6 2.d4 d5 3.Nc3 Nd7
+
+[Event "Nimzo-Larsen Attack: Modern Variation, Leela Gambit"]
+1.b3 e5 2.Bb2 Nc6 3.e3 d5 4.Bb5 Ne7
+
+[Event "Polish Opening, Wolferts Gambit"]
+1.b4 e5 2.Bb2 c5
+
+[Event "English Opening, Anglo-Indian Defense, Flohr-Mikenas-Carls Variation, Nei Gambit"]
+1.c4 Nf6 2.Nc3 e6 3.e4 c5 4.e5 Ng8
+
+[Event "English Opening, Anglo-Indian Defense, Romanishin Gambit"]
+1.c4 Nf6 2.Nf3 e6 3.g3 a6 4.Bg2 b5
+
+[Event "Halibut Jaenisch Gambit"]
+1.c4 b5
+
+[Event "English Opening, Anglo-Scandinavian Defense, Schulz Gambit"]
+1.c4 d5 2.cxd5 Nf6
+
+[Event "Vector Gambit"]
+1.c4 d5 2.cxd5 c6
+
+[Event "English Opening, Anglo-Scandinavian Defense, Loehn Gambit"]
+1.c4 d5 2.cxd5 e6
+
+[Event "Löhn Gambit"]
+1.c4 d5 2.cxd5 e6 3.dxe6 Bxe6
+
+[Event "English Opening, King's English, Erbenheimer Gambit"]
+1.c4 e5 2.Nc3 Nf6 3.Nf3 e4 4.Ng5 Ng4
+
+[Event "English Opening, King's English Variation, Bellon Gambit"]
+1.c4 e5 2.Nc3 Nf6 3.Nf3 e4 4.Ng5 b5
+
+[Event "English Opening: Trojan Gambit (Adamisko)"]
+1.c4 e5 2.Nc3 d5 3.cxd5 c6 4.dxc6 Nxc6
+
+[Event "Romanishin Gambit"]
+1.c4 e6 2.Nf3 Nf6 3.g3 a6 4.Bg2 b5
+
+[Event "Shabalov Gambit"]
+1.c4 e6 2.Nf3 a6 3.Nc3 c5 4.g3 b5
+
+[Event "English Defense, Hartlaub Gambit"]
+1.c4 e6 2.d4 b6 3.Nc3 Bb7 4.e4 f5
+
+[Event "English Defense, Poli Gambit"]
+1.c4 e6 2.d4 b6 3.e4 Bb7 4.f3 f5 5.exf5 Nh6
+
+[Event "Horwitz Defense, Zilbermints Gambit"]
+1.c4 e6 2.d4 e5
+
+[Event "English Opening, Zilbermints Gambit"]
+1.c4 g5 2.d4 e5
+
+[Event "Omega-Horus Gambit"]
+1.d3 d5 2.Nf3 e5
+
+[Event "Mikenas Defense, Pozarek Gambit"]
+1.d4 Nc6 2.c4 e5 3.dxe5 Nxe5 4.Nc3 Nxc4
+
+[Event "Trompowsky Attack, Raptor Variation, Hergert Gambit"]
+1.d4 Nf6 2.Bg5 Ne4 3.h4 Nxg5 4.hxg5 e5
+
+[Event "Chepukaitis Gambit"]
+1.d4 Nf6 2.Bg5 c5 3.d5 Qb6 4.Nc3 Qxb2
+
+[Event "Queen Pawn Game, Hübsch Gambit"]
+1.d4 Nf6 2.Nc3 d5 3.e4 Nxe4
+
+[Event "Indian Game, Maddigan Gambit"]
+1.d4 Nf6 2.Nc3 e5
+
+[Event "Indian Game, Lazard Gambit"]
+1.d4 Nf6 2.Nd2 e5
+
+[Event "Indian Game, Schnepper Gambit"]
+1.d4 Nf6 2.Nf3 b6 3.c3 e5
+
+[Event "Indian Game, Pyrenees Gambit"]
+1.d4 Nf6 2.c4 b5
+
+[Event "Indian Game, Pyrenees Gambit"]
+1.d4 b5 2.c4 Nf6
+
+[Event "Anti-Benoni Gambit"]
+1.d4 Nf6 2.c4 c5 3.Nf3 cxd4 4.Nxd4 e5 5.Nb5 d5 6.cxd5 Bc5
+
+[Event "Benko Gambit, Volga Gambit"]
+1.d4 Nf6 2.c4 c5 3.d5 b5
+
+[Event "Nescafe Frappe Attack"]
+1.d4 Nf6 2.c4 c5 3.d5 b5 4.cxb5 a6 5.Nc3 axb5 6.e4 b4 7.Nb5 d6
+
+[Event "Slav Indian, Kudischewitsch Gambit"]
+1.d4 Nf6 2.c4 c6 3.Nf3 b5
+
+[Event "Indian Defense: Budapest Gambit"]
+1.d4 Nf6 2.c4 e5
+
+[Event "Fajarowicz Gambit"]
+1.d4 Nf6 2.c4 e5 3.dxe5 Ne4
+
+[Event "Budapest Gambit"]
+1.d4 Nf6 2.c4 e5 3.dxe5 Ng4
+
+[Event "Barmina Gambit"]
+1.d4 Nf6 2.c4 e5 3.dxe5 Ng4 4.e4 Nxe5 5.f4 Bc5
+
+[Event "Balogh Gambit"]
+1.d4 Nf6 2.c4 e5 3.dxe5 Ng4 4.e4 d6
+
+[Event "Nimzo-Indian Defense, Leningrad Variation, Averbakh Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Bg5 h6 5.Bh4 c5 6.d5 b5
+
+[Event "Nimzo-Indian Defense, Three Knights Variation, Shocron Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Nf3 c5 5.d5 b5
+
+[Event "Nimzo-Indian Defense, Spielmann Variation, Romanovsky Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qb3 c5 5.dxc5 Nc6
+
+[Event "Adorjan Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 O-O 5.a3 Bxc3 6.Qxc3 b5
+
+[Event "Nimzo-Indian Defense, Classical Variation, Vitolinsh-Adorjan Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 O-O 5.a3 Bxc3+ 6.Qxc3 b5
+
+[Event "Nimzo-Indian Defense, Classical Variation, Lisitsyn-Bondarevsky Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 c5 5.dxc5 O-O
+
+[Event "Nimzo-Indian Defense, Classical Variation, Belyavsky Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 d5 5.cxd5 Qxd5 6.Nf3 Qf5 7.Qd1 e5
+
+[Event "Topalov Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2 d5 5.cxd5 c5
+
+[Event "Blumenfeld Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nf3 c5 4.d5 b5
+
+[Event "Ragozin Gambit"]
+1.d4 Nf6 2.c4 e6 3.Nf3 d5 4.Nc3 c6 5.Bg5 dxc4 6.e4 b5 7.e5 h6 8.Bh4 g5 9.Nxg5 Nd5 10.Nxf7 Qxh4 11.Nxh8 Bb4
+
+[Event "Catalan Opening, Hungarian Gambit"]
+1.d4 Nf6 2.c4 e6 3.g3 e5
+
+[Event "Indian Game, Medusa Gambit"]
+1.d4 Nf6 2.c4 g5
+
+[Event "Anti-Sämisch Gambit"]
+1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.f3 O-O 6.Be3 c5
+
+[Event "Gruenfeld Defense, Brinckmann Attack, Grünfeld Gambit"]
+1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.Bf4 Bg7 5.e3 O-O
+
+[Event "Gruenfeld Defense, Brinckmann Attack, Reshevsky Gambit"]
+1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.Bf4 Bg7 5.e3 O-O 6.Rc1 c5 7.dxc5 Qa5
+
+[Event "Grünfeld Defense: Brinckmann Attack, Grünfeld Gambit"]
+1.d4 Nf6 2.c4 g6 3.Nc3 d5 4.Bf4 Bg7 5.e3 O-O 6.cxd5 Nxd5 7.Nxd5 Qxd5
+
+[Event "Indian Game, Anti-Gruenfeld, Danube Adorjan Gambit"]
+1.d4 Nf6 2.c4 g6 3.d5 b5
+
+[Event "Indian Game, Anti-Grünfeld, Alekhine Variation, Leko Gambit"]
+1.d4 Nf6 2.c4 g6 3.f3 e5
+
+[Event "Oshima Gambit"]
+1.d4 Nf6 2.g4 e5
+
+[Event "St. George Defense, St. Georgs Gambit"]
+1.d4 a6 2.c4 b5 3.e4 e6 4.cxb5 axb5
+
+[Event "Polish Defense, Spassky Gambit"]
+1.d4 b5 2.e4 Bb7
+
+[Event "English Defense, Eastbourne Gambit"]
+1.d4 b6 2.c4 Bb7 3.Nc3 e5
+
+[Event "English Defense, Blumenfeld-Hiva Gambit"]
+1.d4 b6 2.c4 c5 3.d5 e6 4.e4 b5 5.cxb5 f5
+
+[Event "Benoni Gambit"]
+1.d4 c5
+
+[Event "Benoni Defense, Zilbermints-Benoni Gambit, Tamarkin Countergambit"]
+1.d4 c5 2.Nf3 cxd4 3.b4 e5
+
+[Event "Benoni Defense, Cormorant Gambit"]
+1.d4 c5 2.dxc5 b6
+
+[Event "Queen Pawn Game, Steinitz Countergambit"]
+1.d4 d5 2.Bf4 c5
+
+[Event "Hübsch Gambit"]
+1.d4 d5 2.Nc3 Nf6 3.e4 Nxe4 4.Nxe4 dxe4
+
+[Event "Queen Pawn Opening, Veresov Attack, Irish Gambit"]
+1.d4 d5 2.Nc3 c5
+
+[Event "Queen Pawn Game, Veresov Atack, Shaviliuk Gambit"]
+1.d4 d5 2.Nc3 e5
+
+[Event "Queen Pawn Game, Zilbermints Countergambit"]
+1.d4 d5 2.Nf3 Nf6 3.c4 b5
+
+[Event "Zukertort Opening, Reversed Queen's Gambit"]
+1.d4 d5 2.Nf3 c5
+
+[Event "Omega-Osiris Gambit"]
+1.d4 d5 2.Nf3 e5
+
+[Event "Grau Gambit"]
+1.d4 d5 2.c4 Bf5 3.Qb3 e5
+
+[Event "Queen's Gambit Declined, Baltic Defense, Argentinian Gambit"]
+1.d4 d5 2.c4 Bf5 3.cxd5 Bxb1 4.Qa4+ c6 5.dxc6 Nxc6
+
+[Event "Queen's Gambit Declined, Chigorin Defense, Modern Gambit"]
+1.d4 d5 2.c4 Nc6 3.Nc3 Nf6 4.Nf3 dxc4
+
+[Event "Chigorin Gambit"]
+1.d4 d5 2.c4 Nc6 3.Nc3 dxc4 4.Nf3 Nf6 5.d5 Na5 6.Qa4+ c6 7.b4 b5 8.Qxa5 Qxa5 9.bxa5 b4
+
+[Event "Queen's Gambit Declined, Chigorin Defense, Tartakower Gambit"]
+1.d4 d5 2.c4 Nc6 3.Nc3 e5
+
+[Event "Queen's Gambit Declined, Chigorin Defense, Lazard Gambit"]
+1.d4 d5 2.c4 Nc6 3.Nf3 e5
+
+[Event "Queen's Gambit Declined, Marshall Defense, Tan Gambit"]
+1.d4 d5 2.c4 Nf6 3.cxd5 c6
+
+[Event "Queen's Gambit Declined, Zilbermints Gambit"]
+1.d4 d5 2.c4 b5
+
+[Event "Queen's Gambit Declined, Austrian Defense, Gusev Countergambit"]
+1.d4 d5 2.c4 c5 3.cxd5 Nf6
+
+[Event "Queen's Gambit Declined, Austrian Attack, Salvio Countergambit"]
+1.d4 d5 2.c4 c5 3.dxc5 d4
+
+[Event "Slav Defense, Winawer Countergambit"]
+1.d4 d5 2.c4 c6 3.Nc3 e5
+
+[Event "Anti-Moscow Gambit"]
+1.d4 d5 2.c4 c6 3.Nf3 Nf6 4.Nc3 e6 5.Bg5 h6 6.Bh4 dxc4 7.e4 g5 8.Bg3 b5
+
+[Event "Queen's Gambit Accepted, Slav Gambit"]
+1.d4 d5 2.c4 dxc4 3.Nf3 b5
+
+[Event "Queen's Gambit Accepted, Central Variation, Rubinstein Defense, Yefimov Gambit"]
+1.d4 d5 2.c4 dxc4 3.e4 c5 4.d5 b5
+
+[Event "Queen's Gambit Declined, Albin Countergambit"]
+1.d4 d5 2.c4 e5
+
+[Event "Queen's Gambit Declined, Lasker Defense, Bernstein Variation, Mar del Plata Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bg5 Be7 5.e3 O-O 6.Nf3 h6 7.Bh4 Ne4 8.Bxe7 Qxe7 9.cxd5 Nxc3 10.bxc3 exd5 11.Qb3 Rd8 12.c4 Be6
+
+[Event "Queen's Gambit Declined, Knight Defense, Alekhine Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bg5 Nbd7 5.Nf3 h6 6.Bh4 dxc4
+
+[Event "Peruvian Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bg5 c5 5.cxd5 Qb6
+
+[Event "Dutch Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 Nf6 4.Bg5 c5 5.cxd5 cxd4
+
+[Event "Tarrasch Defense, Schara Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 c5 4.cxd5 cxd4
+
+[Event "Schara-Hennig Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 c5 4.cxd5 cxd4 5.Qxd4 Nc6
+
+[Event "Tarrasch Defense, Von Hennig Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 c5 4.cxd5 cxd4 5.Qxd4 Nc6 6.Qd1 exd5 7.Qxd5 Be6
+
+[Event "Tarrasch Defense, Gruenfeld Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 c5 4.cxd5 exd5 5.Nf3 Nc6 6.dxc5 d4 7.Na4 b5
+
+[Event "Tarrasch Defense, Classical Variation, Classical Tarrasch Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 c5 4.cxd5 exd5 5.Nf3 Nc6 6.g3 Nf6 7.Bg2 Be7 8.O-O O-O 9.dxc5 d4
+
+[Event "Tarrasch Defense, Tarrasch Gambit"]
+1.d4 d5 2.c4 e6 3.Nc3 c5 4.cxd5 exd5 5.dxc5 d4 6.Na4 b5
+
+[Event "Blackmar-Diemer Gambit Declined, Brombacher Countergambit"]
+1.d4 d5 2.e4 dxe4 3.Nc3 Nf6 4.f3 c5
+
+[Event "Blackmar-Diemer Gambit Declined, Elbert Countergambit"]
+1.d4 d5 2.e4 dxe4 3.Nc3 Nf6 4.f3 e5
+
+[Event "Blackmar-Diemer Gambit, Lemberger Countergambit"]
+1.d4 d5 2.e4 dxe4 3.Nc3 e5
+
+[Event "Vos Gambit"]
+1.d4 d6 2.Nf3 e5
+
+[Event "English Rat, Pounds Gambit"]
+1.d4 d6 2.c4 e5 3.dxe5 Be6
+
+[Event "Rat Defense, English Rat, Lisbon Gambit"]
+1.d4 d6 2.c4 e5 3.dxe5 Nc6
+
+[Event "Englund Gambit Complex, Felbecker Gambit"]
+1.d4 e5 2.dxe5 Nc6 3.Nf3 Bc5
+
+[Event "Englund Gambit Complex, Zilbermints Gambit"]
+1.d4 e5 2.dxe5 Nc6 3.Nf3 Nge7
+
+[Event "Englund Gambit Complex, Englund Gambit"]
+1.d4 e5 2.dxe5 Nc6 3.Nf3 Qe7
+
+[Event "Hartlaub Gambit"]
+1.d4 e5 2.dxe5 Nc6 3.Nf3 d6 4.exd6 Bxd6
+
+[Event "Englund Gambit Complex, Soller Gambit Deferred"]
+1.d4 e5 2.dxe5 Nc6 3.Nf3 f6
+
+[Event "Englund Gambit Complex, Zilbermints Gambit #2"]
+1.d4 e5 2.dxe5 Nc6 3.Nf3 h6
+
+[Event "Englund Gambit Complex, Mosquito Gambit"]
+1.d4 e5 2.dxe5 Qh4
+
+[Event "Englund Gambit Complex, Blackburne-Hartlaub-Charlick Gambit"]
+1.d4 e5 2.dxe5 d6
+
+[Event "Englund Gambit Complex, Soller Gambit"]
+1.d4 e5 2.dxe5 f6
+
+[Event "Dutch Defense, Omega-Isis Gambit"]
+1.d4 f5 2.Nf3 e5
+
+[Event "Rittenhouse Gambit"]
+1.d4 f5 2.c4 Nf6 3.Nc3 e5
+
+[Event "Dutch Defense, Hevendehl Gambit"]
+1.d4 f5 2.g4 e5
+
+[Event "Nimzowitsch Defense: Colorado Countergambit"]
+1.e4 Nc6 2.Nf3 f5
+
+[Event "Nimzowitsch Defense, Scandinavian Variation, Bogoljubow Variation, Brandics Gambit"]
+1.e4 Nc6 2.d4 d5 3.Nc3 a6
+
+[Event "Nimzowitsch Defense, Scandinavian Variation, Bogoljubow Variation, Nimzowitsch Gambit"]
+1.e4 Nc6 2.d4 d5 3.Nc3 dxe4 4.d5 Ne5
+
+[Event "Nimzowitsch Defense, Scandinavian Variation, Bogoljubow Variation, Heinola-Deppe Gambit"]
+1.e4 Nc6 2.d4 d5 3.Nc3 e5
+
+[Event "Nimzowitsch Defense, Scandinavian Variation, Bogoljubow Variation, Erben Gambit"]
+1.e4 Nc6 2.d4 d5 3.Nc3 g6
+
+[Event "Nimzowitsch Defense, Scandinavian Variation, Aachen Gambit"]
+1.e4 Nc6 2.d4 d5 3.exd5 Nb4
+
+[Event "Nimzowitsch Defense, Kennedy Variation, Bielefelder Gambit"]
+1.e4 Nc6 2.d4 e5 3.dxe5 Bc5
+
+[Event "Nimzowitsch Defense, Kennedy Variation, Herford Gambit"]
+1.e4 Nc6 2.d4 e5 3.dxe5 Qh4
+
+[Event "Nimzowitsch Defense, Kennedy Variation, de Smet Gambit"]
+1.e4 Nc6 2.d4 e5 3.dxe5 d6
+
+[Event "Nimzowitsch Defense, Kennedy Variation, Hammer Gambit"]
+1.e4 Nc6 2.d4 e5 3.dxe5 f6
+
+[Event "Nimzowitsch Defense, Franco-Hiva Gambit #2"]
+1.e4 Nc6 2.d4 e6 3.Nc3 f5 4.exf5 Nf6
+
+[Event "Nimzowitsch Defense, Franco-Hiva Gambit #1"]
+1.e4 Nc6 2.d4 e6 3.Nf3 f5 4.exf5 Nf6
+
+[Event "Alekhine Defense, Scandinavian Variation, Geschev Gambit"]
+1.e4 Nf6 2.Nc3 d5 3.exd5 c6
+
+[Event "O’Sullivan Gambit"]
+1.e4 Nf6 2.e5 Nd5 3.d4 b5
+
+[Event "Alekhine Defense, Four Pawns Attack, Cambridge Gambit"]
+1.e4 Nf6 2.e5 Nd5 3.d4 d6 4.c4 Nb6 5.f4 g5
+
+[Event "Alekhine Defense, Four Pawns Attack, Cambridge Gambit"]
+1.e4 Nf6 2.e5 Nd5 3.c4 Nb6 4.d4 d6 5.f4 g5
+
+[Event "St. George Defense, Zilbermints Gambit"]
+1.e4 a6 2.d4 e5
+
+[Event "St. George Defense, New St. George, Sanky-Georg Gambit"]
+1.e4 a6 2.d4 e6 3.c4 b5
+
+[Event "Owen Defense, Matovinsky Gambit"]
+1.e4 b6 2.d4 Bb7 3.Bd3 f5 4.exf5 Bxg2 5.Qh5+ g6
+
+[Event "Owen Defense, Wind Gambit"]
+1.e4 b6 2.d4 Bb7 3.f3 e5
+
+[Event "Owen Defense, Hekili-Loa Gambit"]
+1.e4 b6 2.d4 c5 3.dxc5 Nc6
+
+[Event "Sicilian Defense, Marshall Gambit"]
+1.e4 c5 2.Nc3 e6 3.d4 d5
+
+[Event "Sveshnikov Gambit"]
+1.e4 c5 2.Nf3 Nc6 3.Nc3 e5 4.Bc4 Be7 5.d3 Nf6 6.Ng5 O-O 7.f4 d5
+
+[Event "Sicilian Defense, O'Kelly Variation, Venice System, Gambit line"]
+1.e4 c5 2.Nf3 a6 3.c3 d5 4.exd5 Nf6
+
+[Event "Sicilian Defense, Polish Gambit"]
+1.e4 c5 2.Nf3 b5
+
+[Event "Sicilian Defense, Delayed Alapin, Basman-Palatnik Gambit"]
+1.e4 c5 2.Nf3 d6 3.c3 Nf6 4.Be2 Nc6 5.d4 cxd4 6.cxd4 Nxe4
+
+[Event "Perenyi Gambit"]
+1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Be3 e6 7.g4 e5
+
+[Event "Sicilian Defense, Kotov Gambit"]
+1.e4 c5 2.Nf3 d6 3.g3 b5
+
+[Event "Sicilian Defense, Paulsen Variation: Gary Kasparov Gambit"]
+1.e4 c5 2.Nf3 e6 3.d4 cxd4 4.Nxd4 Nc6 5.Nb5 d6 6.c4 Nf6 7.N1c3 a6 8.Na3 d5
+
+[Event "Sicilian Defense, Brussels Gambit"]
+1.e4 c5 2.Nf3 f5
+
+[Event "Sicilian Defense, Double-Dutch Gambit"]
+1.e4 c5 2.Nf3 f5 3.exf5 Nh6
+
+[Event "Wing Gambit, xb8-zolpi Gambit"]
+1.e4 c5 2.b4 cxb4 3.d4 d5 4.e5 Nc6 5.a3 Bf5 6.Nf3 e6 7.axb4 Nxb4 8.c3 Nc2+ 9.Kd2 Nxa1 10.Bb5+ Qd7
+
+[Event "Sicilian Defense, McDonnell Attack, Tal Gambit"]
+1.e4 c5 2.f4 d5 3.exd5 Nf6
+
+[Event "Tal Gambit - example"]
+1.e4 c5 2.f4 d5 3.exd5 Nf6 4.Bb5+ Bd7 5.Bxd7+ Qxd7 6.c4 e6 7.Qe2 Bd6
+
+[Event "Shirazi Gambit"]
+1.e4 c5 2.f4 g5 3.fxg5 h6
+
+[Event "Caro-Kann Defense, Panov Attack, Fianchetto Defense, Fianchetto Gambit"]
+1.e4 c6 2.d4 d5 3.exd5 cxd5 4.c4 Nf6 5.Nc3 g6 6.cxd5 Bg7
+
+[Event "Scandinavian Defense: Cyclops Gambit (Adamisko)"]
+1.e4 d5 2.Nc3 d4 3.Nce2 d3 4.cxd3 e5
+
+[Event "Tennison Gambit"]
+1.e4 d5 2.Nf3 dxe4 3.Ng5 Bf5
+
+[Event "Drunken Bishops Gambit (Adamisko)"]
+1.e4 d5 2.Nf3 e5 3.Nxe5 Nf6 4.exd5 Qxd5 5.Nf3 Nc6 6.Nc3 Qh5 7.Nb5 Bb4 8.Nxc7+ Kd8 9.Nxa8 Bh3
+
+[Event "Scandinavian Defense, Boehnke Gambit"]
+1.e4 d5 2.exd5 e5
+
+[Event "Scandinavian Defense: Eval Gambit (Adamisko)"]
+1.e4 d5 2.exd5 Nf6 3.Nc3 Nxd5 4.Bc4 Be6 5.Qf3 Nb4
+
+[Event "Scandinavian Gambit"]
+1.e4 d5 2.exd5 Nf6 3.c4 c6
+
+[Event "Scandinavian Defense, Icelandic-Palme Gambit"]
+1.e4 d5 2.exd5 Nf6 3.c4 e6
+
+[Event "Scandinavian Defense: Icelandic-Palme Gambit, Gandalf Gambit (Adamisko)"]
+1.e4 d5 2.exd5 Nf6 3.c4 e6 4.dxe6 Bc5
+
+[Event "Scandinavian Defense: Portuguese Gambit"]
+1.e4 d5 2.exd5 Nf6 3.d4 Bg4
+
+[Event "Scandinavian Defense, Kadas Gambit"]
+1.e4 d5 2.exd5 Nf6 3.d4 c6 4.dxc6 e5
+
+[Event "Scandinavian Defense, Modern Variation, Wing Gambit"]
+1.e4 d5 2.exd5 Nf6 3.d4 g6 4.c4 b5
+
+[Event "Scandinavian Defense, Blackburne-Kloosterboer Gambit"]
+1.e4 d5 2.exd5 c6
+
+[Event "Kadas Gambit"]
+1.e4 d5 2.exd5 c6 3.d4 Nf6 4.dxc6 e5
+
+[Event "Scandinavian Defense, Blackburne Gambit"]
+1.e4 d5 2.exd5 c6 3.dxc6 Nxc6
+
+[Event "Scandinavian Defense, Kloosterboer Gambit"]
+1.e4 d5 2.exd5 c6 3.dxc6 e5
+
+[Event "Lion Defense, Anti-Philidor, Lion's Cave, Lion Claw Gambit"]
+1.e4 d6 2.d4 Nf6 3.Nc3 Nbd7 4.f4 e5 5.Nf3 exd4 6.Qxd4 c6 7.Bc4 d5
+
+[Event "Rat Defense, Fuller Gambit"]
+1.e4 d6 2.f4 d5 3.exd5 Nf6
+
+[Event "Lewis Countergambit"]
+1.e4 e5 2.Bc4 Bc5 3.c3 d5
+
+[Event "Bishop's Opening, Lewis Countergambit"]
+1.e4 e5 2.Bc4 Bc5 3.c3 d5 4.Bxd5 Nf6
+
+[Event "Bishop's Opening, Blanel Gambit"]
+1.e4 e5 2.Bc4 Nf6 3.Nc3 Nxe4
+
+[Event "Bishop's Opening, Horwitz Gambit"]
+1.e4 e5 2.Bc4 Nf6 3.Nc3 b5
+
+[Event "Bishop's Opening, Anderssen Gambit"]
+1.e4 e5 2.Bc4 b5 3.Bxb5 c6
+
+[Event "Bishop's Opening, Thorold Gambit"]
+1.e4 e5 2.Bc4 b5 3.Bxb5 f5
+
+[Event "Bishop's Opening, Khan Gambit"]
+1.e4 e5 2.Bc4 d5
+
+[Event "Bishop's Opening, Calabrese Countergambit"]
+1.e4 e5 2.Bc4 f5
+
+[Event "Vienna Game, Zhuravlev Countergambit"]
+1.e4 e5 2.Nc3 Bb4 3.Qg4 Nf6
+
+[Event "Vienna Game, Philidor Countergambit"]
+1.e4 e5 2.Nc3 Nc6 3.d4 f5
+
+[Event "Vienna Game, Vienna Gambit, Quelle Gambit"]
+1.e4 e5 2.Nc3 Nc6 3.f4 Bc5 4.fxe5 d6
+
+[Event "Vienna Game, Vienna Gambit, Hamppe-Muzio Gambit"]
+1.e4 e5 2.Nc3 Nc6 3.f4 exf4 4.Nf3 g5 5.Bc4 g4 6.O-O gxf3
+
+[Event "Steinitz Gambit"]
+1.e4 e5 2.Nc3 Nc6 3.f4 exf4 4.d4 Qh4 5.Ke2 d5 6.exd5 Bg4 7.Nf3 O-O-O
+
+[Event "Vienna Game, Paulsen Variation, Mariotti Gambit"]
+1.e4 e5 2.Nc3 Nc6 3.g3 Bc5 4.Bg2 h5 5.Nf3 h4
+
+[Event "Vienna Game, Paulsen Variation, Pollock Gambit"]
+1.e4 e5 2.Nc3 Nc6 3.g3 Nf6 4.Bg2 Bc5 5.Nge2 d5 6.exd5 Nd4
+
+[Event "Vienna Game, Stanley Variation, Eifel Gambit"]
+1.e4 e5 2.Nc3 Nf6 3.Bc4 Bc5 4.Nge2 b5
+
+[Event "Dracula Gambit"]
+1.e4 e5 2.Nc3 Nf6 3.Bc4 Nxe4 4.Qh5 Nd6 5.Bb3 Nc6 6.Nb5 g6 7.Qf3 f5 8.Qd5 Qe7 9.Nxc7 Kd8 10.Nxa8 b6
+
+[Event "Blackburne Gambit Vienna"]
+1.e4 e5 2.Nc3 Nf6 3.f4 d5 4.fxe5 Nxe4 5.d3 Bb4 6.dxe4 Qh4 7.Ke2 Bg4 8.Nf3 Bxc3 9.bxc3 dxe4
+
+[Event "Vienna Game, Mieses Variation, Erben Gambit"]
+1.e4 e5 2.Nc3 Nf6 3.g3 d5 4.exd5 c6
+
+[Event "King Pawn Game, Busch-Gass Gambit"]
+1.e4 e5 2.Nf3 Bc5
+
+[Event "King Pawn Game, Busch-Gass Gambit, Chiodini Gambit"]
+1.e4 e5 2.Nf3 Bc5 3.Nxe5 Nc6
+
+[Event "Spanish Game, Alapin Defense, Alapin Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 Bb4 4.c3 Ba5 5.Bxc6 dxc6
+
+[Event "Schliemann Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 Bc5 4.O-O f5
+
+[Event "Spanish Game, Classical Variation, Konikowski-Hardy Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 Bc5 4.c3 d5
+
+[Event "Spanish Game, Classical Variation, Cordel Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 Bc5 4.c3 f5
+
+[Event "Spanish Game, Cozio Defense, Tartakower Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 Nge7 4.d4 exd4 5.Nxd4 g6 6.Nc3 Bg7 7.Be3 O-O 8.Qd2 d5
+
+[Event "Marshall Gambit Spanish"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.Re1 b5 7.Bb3 O-O 8.c3 d5
+
+[Event "Spanish Game, Closed Variations, Center Attack, Basque Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O Be7 6.d4 exd4 7.e5 Ne4 8.c3 dxc3
+
+[Event "Spanish Game, Open Variation, Skipworth Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O Nxe4 6.Re1 d5
+
+[Event "Spanish Game, Central Countergambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Ba4 Nf6 5.O-O d5
+
+[Event "Ruy Lopez: Morphy Defense, Alapin Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Bxc6 dxc6 5.O-O Bg4 6.h3 h5
+
+[Event "Spanish Game, Rotary-Albany Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 b6
+
+[Event "Spanish Game, Spanish Countergambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 d5
+
+[Event "Ruy Lopez: Schliemann Defense, Jänisch Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 f5
+
+[Event "Spanish Game, Brentano Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 g5
+
+[Event "Spanish Opening, Fianchetto Devfense, Kevitz Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bb5 g6 4.c3 f5
+
+[Event "Italian Game, Evans Gambit, Leonhardt Countergambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4 Bxb4 5.c3 Ba5 6.d4 b5
+
+[Event "Italian Game, Evans Gambit, Mortimer-Evans Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4 Bxb4 5.c3 Bc5 6.d4 exd4 7.O-O d6 8.cxd4 Bb6 9.Nc3 Bg4 10.Qa4 Bd7 11.Qb3 Na5 12.Bxf7+ Kf8 13.Qc2 Kxf7
+
+[Event "Italian Game, Evans Gambit, Fontaine Countergambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4 b5
+
+[Event "Italian Game, Evans Gambit, Hein Countergambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.b4 d5
+
+[Event "Italian Game, Classical Variation, Greco Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 Nf6 5.d4 exd4 6.e5 d5
+
+[Event "Italian Game, Classical Variation, Alexandre Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.c3 f5
+
+[Event "Italian Game, Giuoco Pianissimo, Lucchini Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.d3 f5
+
+[Event "Italian Game, Blackburne Schilling-Kostic Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Nd4
+
+[Event "Traxler's Countergambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 Bc5
+
+[Event "Italian Game, Two Knights Defense, Ponziani-Steinitz Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 Nxe4
+
+[Event "Italian Game, Two Knights Defense, Kloss Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 d5 5.exd5 Nb4
+
+[Event "Radchenko Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 d5 5.exd5 Nd4 6.c3 b5 7.Bf1 Nxd5 8.Ne4 Qh4 9.Ng3 Bb7
+
+[Event "Ulvestad Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 4.Ng5 d5 5.exd5 b5
+
+[Event "Italian Game, Rousseau Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Bc4 f5
+
+[Event "Four Knights Game, Spanish Variation, Classical Variation, Marshall Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6 4.Bb5 Bc5 5.Nxe5 Nd4 6.Ba4 O-O
+
+[Event "Rubinstein Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6 4.Bb5 Nd4
+
+[Event "Four Knights Game, Scotch Variation, Oxford Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6 4.d4 Bb4 5.d5 Nd4
+
+[Event "Schmidt Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.Nc3 Nf6 4.d4 exd4 5.Nxd4 Nxe4
+
+[Event "Ponziani Opening, Fraser Vukovic Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.c3 Nf6 4.d4 Nxe4 5.d5 Bc5
+
+[Event "Ponziani Opening, Caro Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.c3 d5 4.Qa4 Bd7
+
+[Event "Caro-Ponziani Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.c3 d5 4.Qa4 Bd7 5.exd5 Nd4
+
+[Event "Ponziani Opening, Ponziani Countergambit"]
+1.e4 e5 2.Nf3 Nc6 3.c3 f5
+
+[Event "Scotch Game, Schmid Gambit"]
+1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Nxd4 Nf6 5.Nc3 Nxe4
+
+[Event "Russian Game, Stafford Gambit"]
+1.e4 e5 2.Nf3 Nf6 3.Nxe5 Nc6
+
+[Event "Russian Game, Damiano Variation, Kholmov Gambit"]
+1.e4 e5 2.Nf3 Nf6 3.Nxe5 Nxe4 4.Qe2 Qe7
+
+[Event "Russian Game: Drunken Bishops Gambit (Adamisko)"]
+1.e4 e5 2.Nf3 Nf6 3.Nxe5 d5 4.exd5 Qxd5 5.Nf3 Nc6 6.Nc3 Qh5 7.Nb5 Bb4 8.Nxc7+ Kd8 9.Nxa8 Bh3
+
+[Event "Russian Game, Classical Attack, Marshall Variation, Chinese Gambit"]
+1.e4 e5 2.Nf3 Nf6 3.Nxe5 d6 4.Nf3 Nxe4 5.d4 d5 6.Bd3 Bd6 7.O-O O-O 8.c4 c6 9.Re1 Bg4
+
+[Event "King Pawn Game, Gunderam Defense, Gunderam Gambit"]
+1.e4 e5 2.Nf3 Qe7 3.Bc4 f5
+
+[Event "King Pawn Game, Gunderam Gambit"]
+1.e4 e5 2.Nf3 c6
+
+[Event "Elephant Gambit"]
+1.e4 e5 2.Nf3 d5
+
+[Event "Elephant Gambit: Drunken Bishops Gambit (Adamisko)"]
+1.e4 e5 2.Nf3 d5 3.Nxe5 Nf6 4.exd5 Qxd5 5.Nf3 Nc6 6.Nc3 Qh5 7.Nb5 Bb4 8.Nxc7+ Kd8 9.Nxa8 Bh3
+
+[Event "Elephant Gambit, Maroczy Gambit"]
+1.e4 e5 2.Nf3 d5 3.exd5 Bd6
+
+[Event "Elephant Gambit, Paulsen Countergambit"]
+1.e4 e5 2.Nf3 d5 3.exd5 e4
+
+[Event "Philidor Defense, Lopez Countergambit"]
+1.e4 e5 2.Nf3 d6 3.Bc4 f5
+
+[Event "Philidor Defense, Philidor Gambit"]
+1.e4 e5 2.Nf3 d6 3.d4 Bd7
+
+[Event "Philidor Defense, Albin-Blackburne Gambit"]
+1.e4 e5 2.Nf3 d6 3.d4 Bg4 4.dxe5 Nd7
+
+[Event "Philidor Defense, Philidor Countergambit"]
+1.e4 e5 2.Nf3 d6 3.d4 f5
+
+[Event "Latvian Gambit"]
+1.e4 e5 2.Nf3 f5
+
+[Event "Latvian Gambit, Mayet Attack, Strautins Gambit"]
+1.e4 e5 2.Nf3 f5 3.Bc4 b5
+
+[Event "Latvian Gambit, Corkscrew Gambit"]
+1.e4 e5 2.Nf3 f5 3.Nxe5 Nf6 4.Bc4 fxe4 5.Nf7 Qe7 6.Nxh8 d5
+
+[Event "King Pawn Game, Damiano Defense, Damiano Gambit, Chigorin Gambit"]
+1.e4 e5 2.Nf3 f6 3.Nxe5 Qe7 4.Nf3 d5
+
+[Event "King Pawn Opening, Van Hooydoon Gambit"]
+1.e4 e5 2.Qe2 Nc6 3.c3 Nf6 4.Nf3 Bc5 5.d4 exd4 6.cxd4 Nxd4
+
+[Event "King Pawn Game, Wayward Queen Attack, Mellon Gambit"]
+1.e4 e5 2.Qh5 Nc6 3.Bc4 Nh6 4.d3 g6 5.Qf3 f6 6.Ne2 d5
+
+[Event "King Pawn Game, Wayward Queen Attack, Kiddie Countergambit"]
+1.e4 e5 2.Qh5 Nf6
+
+[Event "King Pawn Game, Macleod Attack, Norwalder Gambit"]
+1.e4 e5 2.c3 d5 3.Qh5 Bd6
+
+[Event "King Pawn Game, Macleod Attack, Lasa Gambit"]
+1.e4 e5 2.c3 f5
+
+[Event "King Pawn Game, Bavarian Gambit"]
+1.e4 e5 2.c4 d5
+
+[Event "King Pawn Game, Clam Variation, Radisch Gambit"]
+1.e4 e5 2.d3 Nf6 3.f4 Bc5
+
+[Event "King Pawn Game, Weber Gambit"]
+1.e4 e5 2.d3 d5 3.exd5 c6 4.dxc6 Nxc6
+
+[Event "King Pawn Game, Clam Variation, King's Gambit Reversed"]
+1.e4 e5 2.d3 f5
+
+[Event "King Pawn Game, Beyer Gambit"]
+1.e4 e5 2.d4 d5
+
+[Event "King Pawn Game, Philidor Gambit"]
+1.e4 e5 2.d4 d6 3.dxe5 Bd7
+
+[Event "Schlemmer Countergambit"]
+1.e4 e5 2.f4 Bc5 3.Nf3 d5 4.Nxe5 dxe4 5.Qh5 Be6
+
+[Event "King's Gambit Declined, Classical Variation, Rubinstein Countergambit"]
+1.e4 e5 2.f4 Bc5 3.Nf3 d6 4.c3 f5
+
+[Event "King's Gambit Declined, Senechaud Countergambit"]
+1.e4 e5 2.f4 Bc5 3.Nf3 g5
+
+[Event "Adelaide Countergambit"]
+1.e4 e5 2.f4 Nc6 3.Nf3 f5
+
+[Event "King's Gambit Declined, Zilbermints Double Gambit #1"]
+1.e4 e5 2.f4 Nc6 3.Nf3 g5
+
+[Event "King's Gambit Declined, Hobbs-Zilbermints Gambit"]
+1.e4 e5 2.f4 Nc6 3.Nf3 g5 4.fxg5 h6
+
+[Event "King's Gambit Declined: Falkbeer Countergambit"]
+1.e4 e5 2.f4 d5
+
+[Event "King's Gambit, Falkbeer Countergambit, Miles Gambit"]
+1.e4 e5 2.f4 d5 3.exd5 Bc5
+
+[Event "King's Gambit, Falkbeer Countergambit, Nimzowitsch-Marshall Countergambit"]
+1.e4 e5 2.f4 d5 3.exd5 c6
+
+[Event "King's Gambit, Falkbeer Countergambit, Pickler Gambit"]
+1.e4 e5 2.f4 d5 3.exd5 c6 4.dxc6 Bc5
+
+[Event "Falkbeer Countergambit"]
+1.e4 e5 2.f4 d5 3.exd5 e4
+
+[Event "Morphy Gambit"]
+1.e4 e5 2.f4 d5 3.exd5 e4 4.Nc3 Nf6 5.d3 Bb4
+
+[Event "King's Gambit Accepted, Bishop's Gambit, Bryan Countergambit"]
+1.e4 e5 2.f4 exf4 3.Bc4 Qh4+ 4.Kf1 b5
+
+[Event "King's Gambit Accepted, Bishop's Gambit, Kieseritzsky Gambit"]
+1.e4 e5 2.f4 exf4 3.Bc4 b5
+
+[Event "King's Gambit Accepted, Bishop's Gambit, Bledow Countergambit"]
+1.e4 e5 2.f4 exf4 3.Bc4 d5 4.Bxd5 Nf6
+
+[Event "King's Gambit Accepted, Bishop's Gambit, Nordic Gianutio Countergambit"]
+1.e4 e5 2.f4 exf4 3.Bc4 f5
+
+[Event "Requena Gambit"]
+1.e4 e5 2.f4 exf4 3.Nc3 Qh4+
+
+[Event "Pernau Gambit"]
+1.e4 e5 2.f4 exf4 3.Nc3 Qh4+ 4.Ke2 d5 5.Nxd5 Bg4+ 6.Nf3 Nc6
+
+[Event "Cunningham Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 Be7
+
+[Event "Bertin Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 Be7 4.Bc4 Bh4+ 5.g3 fxg3
+
+[Event "King's Gambit Accepted, Gianutio Countergambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 f5
+
+[Event "King's Gambit Accepted, Greco Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 g5 4.Bc4 Bg7 5.h4 h6 6.d4 d6
+
+[Event "King's Gambit Accepted, Blachly Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 g5 4.Bc4 Nc6
+
+[Event "King's Gambit Accepted, Middleton Countergambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 g5 4.Bc4 d6 5.O-O Bg4 6.h3 h5 7.hxg4 hxg4
+
+[Event "Silberschmidt Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 g5 4.Bc4 g4 5.Ne5 Qh4+ 6.Kf1 Nh6 7.d4 f3
+
+[Event "King's Gambit Accepted, Salvio Gambit, Cochrane Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 g5 4.Bc4 g4 5.Ne5 Qh4+ 6.Kf1 f3
+
+[Event "King's Gambit Accepted, Double Muzio Gambit, Young Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 g5 4.Bc4 g4 5.O-O gxf3 6.Qxf3 Qf6 7.Bxf7+ Kxf7 8.d4 Qxd4+ 9.Be3 Qf6 10.Nc3 fxe3
+
+[Event "Rosentreter Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 g5 4.d4 g4
+
+[Event "King's Gambit Accepted, Kieseritsky Gambit, Rice Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 g5 4.h4 g4 5.Ne5 Nf6 6.Bc4 d5 7.exd5 Bd6 8.O-O Bxe5
+
+[Event "King's Gambit Accepted, Kieseritsky Gambit, Anderssen-Cordel Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 g5 4.h4 g4 5.Ne5 Nf6 6.Bc4 d5 7.exd5 Bd6 8.d4 Nh5 9.Bxf4 Nxf4
+
+[Event "King's Gambit Accepted: Philidor Greco Gambit"]
+1.e4 e5 2.f4 exf4 3.Nf3 h6 4.Bc4 d6 5.d4 g5 6.h4 Bg7
+
+[Event "King's Gambit, Panteldakis Countergambit"]
+1.e4 e5 2.f4 f5
+
+[Event "King's Gambit Declined, Soller-Zilbermints Gambit"]
+1.e4 e5 2.f4 f6 3.fxe5 Nc6
+
+[Event "King's Gambit, Zilbermints Double Countergambit"]
+1.e4 e5 2.f4 g5
+
+[Event "French Defense, Franco-Hiva Gambit #2"]
+1.e4 e6 2.Nf3 f5
+
+[Event "Franco-Hiva-2 Gambit"]
+1.e4 e6 2.Nf3 f5 3.exf5 Nf6 4.fxe6 Bd6
+
+[Event "French Defense, Franco-Hiva Gambit #3"]
+1.e4 e6 2.d3 f5
+
+[Event "Saint George Gambit"]
+1.e4 e6 2.d4 a6 3.c4 b5 4.cxb5 axb5 5.Bxb5 Bb7
+
+[Event "French Defense, Baeuerle Gambit"]
+1.e4 e6 2.d4 b5
+
+[Event "Franco-Polish Gambit"]
+1.e4 e6 2.d4 b5 3.Bxb5 Bb7 4.Bd3 f5
+
+[Event "French Defense, Winawer Variation, Fingerslip Variation, Kunin Double Gambit"]
+1.e4 e6 2.d4 d5 3.Nc3 Bb4 4.Bd2 dxe4 5.Qg4 Qxd4
+
+[Event "French Defense, Alekhine-Chatard Attack, Albin-Chatard Gambit"]
+1.e4 e6 2.d4 d5 3.Nc3 Nf6 4.Bg5 Be7 5.e5 Nfd7 6.h4 Bxg5 7.hxg5 Qxg5
+
+[Event "French Defense, Rubinstein Variation, Ellis Gambit"]
+1.e4 e6 2.d4 d5 3.Nc3 dxe4 4.Nxe4 e5
+
+[Event "French Defense, Tarrasch Variation, Open System, Shaposhnikov Gambit"]
+1.e4 e6 2.d4 d5 3.Nd2 c5 4.exd5 Nf6
+
+[Event "French Defense, Hoffmann Gambit"]
+1.e4 e6 2.d4 d5 3.Qe2 e5 4.f4 exf4
+
+[Event "French Defense, Franco-Hiva Gambit #1"]
+1.e4 e6 2.d4 f5
+
+[Event "Franco-Hiva-1 Gambit"]
+1.e4 e6 2.d4 f5 3.exf5 Nf6 4.fxe6 Bd6
+
+[Event "French Defense, La Bourdonnais Variation, Reuter Gambit"]
+1.e4 e6 2.f4 d5 3.Nf3 dxe4
+
+[Event "Borg Defense, Borg Gambit"]
+1.e4 g5 2.d4 Bg7
+
+[Event "Borg Opening, Zilbermints Gambit"]
+1.e4 g5 2.d4 e5
+
+[Event "Borg Defense, Langhorst Gambit"]
+1.e4 g5 2.d4 e6 3.c3 c5 4.dxc5 b6
+
+[Event "Borg Defense, Troon Gambit"]
+1.e4 g5 2.d4 h6 3.h4 g4
+
+[Event "Modern Defense, Bishop Attack, Nordwalder Bücker Gambit"]
+1.e4 g6 2.d4 Bg7 3.Bc4 b5
+
+[Event "Modern Defense, Lizard Defense, Mittenberger Gambit"]
+1.e4 g6 2.d4 Bg7 3.Nc3 d5
+
+[Event "Modern Defense, Two Knights Variation, Suttles Variation, Tal Gambit"]
+1.e4 g6 2.d4 Bg7 3.Nc3 d6 4.Nf3 c6 5.Bg5 Qb6 6.Qd2 Qxb2
+
+[Event "Pterodactyl Defense, Central, Quetzalcoatlus Gambit"]
+1.e4 g6 2.d4 Bg7 3.c4 c5 4.Nc3 d6 5.dxc5 Qa5
+
+[Event "Modern Defense, Norwegian Defense, Norwegian Gambit"]
+1.e4 g6 2.d4 Nf6 3.e5 Nh5 4.Be2 d6
+
+[Event "Modern Defense, Masur Gambit"]
+1.e4 g6 2.d4 Nh6 3.Nc3 f5 4.Bxh6 Bxh6 5.exf5 O-O
+
+[Event "Modern Defense, Fianchetto Gambit"]
+1.e4 g6 2.d4 f5
+
+[Event "Carr Defense, Zilbermints Gambit"]
+1.e4 h6 2.d4 e5
+
+[Event "Bird Opening, Dutch Variation, Batavo Gambit"]
+1.f4 d5 2.Nf3 c5 3.e4 dxe4
+
+[Event "Bird Opening: Vendetta Gambit (Adamisko)"]
+1.f4 d5 2.e3 e5 3.fxe5 f6 4.exf6 Nxf6 5.Nf3 Bd6 6.b3 O-O 7.Bb2 Nc6 8.Be2 Ng4 9.O-O Rxf3 10.Bxf3 Bxh2+
+
+[Event "Bird Opening: From's Gabit"]
+1.f4 e5
+
+[Event "Bird Opening, Schlechter Gambit"]
+1.f4 e5 2.fxe5 Nc6
+
+[Event "Bird Opening, Platz Gambit"]
+1.f4 e5 2.fxe5 Ne7
+
+[Event "From Gambit"]
+1.f4 e5 2.fxe5 d6 3.exd6 Bxd6
+
+[Event "Bird Opening, From Gambit, Langheld Gambit"]
+1.f4 e5 2.fxe5 d6 3.exd6 Nf6
+
+[Event "Bird Opening, Lasker Gambit"]
+1.f4 e5 2.fxe5 f6
+
+[Event "Hobbs Gambit"]
+1.f4 g5
+
+[Event "Bird Opening, Hobbs-Zilbermints Gambit"]
+1.f4 h6 2.Nf3 g5
+
+[Event "Hungarian Opening, Asten Gambit"]
+1.g3 Nc6 2.Nc3 d5 3.d4 e5 4.dxe5 d4 5.Ne4 f5
+
+[Event "Hungarian Opening, Wiedenhagen-Beta Gambit"]
+1.g3 d5 2.Nf3 g5
+
+[Event "Hungarian Opening, Paschmann Gambit"]
+1.g3 f5 2.e4 fxe4 3.Qh5+ g6
+
+[Event "Hungarian Opening, Van Kruijk Gambit"]
+1.g3 h5 2.Nf3 h4
+
+[Event "Romford Countergambit"]
+1.g4 d5 2.Bg2 Bxg4 3.c4 d4
+
+[Event "Grob Opening, Grob Gambit, Fritz Gambit, Romford Countergambit"]
+1.g4 d5 2.Bg2 Bxg4 3.c4 d4 4.Bxb7 Nd7 5.Bxa8 Qxa8
+
+[Event "Grob Opening, Grob Gambit Declined"]
+1.g4 d5 2.Bg2 c6
+
+[Event "Grob Opening, Zilbermints Gambit, Schiller Defense"]
+1.g4 d5 2.e4 dxe4 3.Nc3 h5
+
+[Event "Alessi Gambit"]
+1.g4 f5
+
