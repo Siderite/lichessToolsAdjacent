@@ -41,6 +41,10 @@ namespace AssetGenerator.Extensions
             public override void Write<TState>(in LogEntry<TState> logEntry, IExternalScopeProvider? scopeProvider, TextWriter textWriter)
             {
                 textWriter.WriteLine($"[{logEntry.LogLevel.ToString()[0]}] {DateTime.Now.ToString("HH:mm:ss")} {logEntry.Formatter(logEntry.State, logEntry.Exception)}");
+                if (logEntry.Exception != null)
+                {
+                    textWriter.WriteLine(logEntry.Exception.ToString());
+                }
             }
         }
     }

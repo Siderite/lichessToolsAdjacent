@@ -34,7 +34,13 @@ namespace AssetGenerator
         public async Task Generate()
         {
             logger.LogInformation("Generating wiki URLs...");
-            var baseUrl = "https://en.wikibooks.org/w/api.php?action=query&list=search&srnamespace=0&srprop=timestamp&srsearch=intitle:Chess%20Opening%20Theory&srlimit=max&format=json&stable=1";
+            var baseUrl = Regex.Replace(@"https://en.wikibooks.org/w/api.php
+  ?action=query
+  &format=json
+  &list=allpages
+  &apprefix=Chess%20Opening%20Theory/
+  &apnamespace=0
+  &aplimit=max", @"[\r\n\s]+", "");
             var url = baseUrl;
             using (var client = new HttpClient())
             {
@@ -67,16 +73,19 @@ namespace AssetGenerator
                     {
                         throw new HttpRequestException("Error getting wiki URLs: " + search.error.code + " (" + search.error.info + ")");
                     }
-                    if (search?.query?.search?.Count > 0)
+                    if (search?.query?.allpages?.Count > 0)
                     {
-                        list.AddRange(search.query.search.Select(s => s.title));
+                        list.AddRange(search.query.allpages.Select(s => s.title));
                     }
                     else
                     {
                         break;
                     }
-                    if (search?.@continue == null) break;
-                    url = baseUrl + "&sroffset=" + search?.@continue?.sroffset + "&continue=" + search?.@continue?.@continue;
+                    if (search?.@continue == null)
+                    {
+                        break;
+                    }
+                    url = baseUrl + "&apcontinue=" + search?.@continue?.apcontinue + "&continue=" + search?.@continue?.@continue;
                 }
                 var regex = regCotTitle();
                 var associations = new Dictionary<string, HashSet<string>>();
@@ -87,7 +96,10 @@ namespace AssetGenerator
                     {
                         var match = regex.Match(title);
                         if (!match.Success) continue;
-                        var moves = match.Groups["move"].Captures.OfType<Capture>().Select(c => Regex.Replace(c.Value, @"^/\d+\.+\s*", "")).ToList();
+                        var moves = match.Groups["move"]
+                            .Captures.OfType<Capture>()
+                            .Select(c => Regex.Replace(Regex.Replace(c.Value, @"(^/\s*\d+\.+\s*)|([\?!]+$)", ""),@"0(-0)+",m=>m.Value.Replace("0","O")))
+                            .ToList();
                         var board = chessManager.NewBoard();
                         foreach (var moveText in moves)
                         {

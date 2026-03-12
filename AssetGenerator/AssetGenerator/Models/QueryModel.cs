@@ -10,7 +10,7 @@
         /// <summary>
         /// Search results
         /// </summary>
-        public List<PageModel> search { get; set; }
+        public List<PageModel> allpages { get; set; }
     }
 
 
