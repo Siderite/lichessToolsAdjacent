@@ -41,6 +41,7 @@ namespace AssetGenerator.Implementations
             using var db = new LiteDatabase("puzzleCache.db");
             var col = db.GetCollection<DbPuzzleItem>("puzzles");
 
+            var lastTime = DateTime.Now;
             logger.LogInformation("Starting to read lichess_db_puzzle.csv...");
 
             var puzzles = File.ReadAllLines("Data/lichess_db_puzzle.csv")
@@ -51,10 +52,11 @@ namespace AssetGenerator.Implementations
                 .Select(line =>
                 {
                     lineNr++;
-                    if (lineNr % 10000 == 0)
+                    if (lineNr % 10000 == 0 && DateTime.Now.Subtract(lastTime).TotalSeconds >= 5)
                     {
                         logger.LogInformation("reading: {LineNr}", lineNr);
                         db.Checkpoint();
+                        lastTime = DateTime.Now;
                     }
                     return getPuzzle(line, col);
                 })
@@ -80,9 +82,10 @@ namespace AssetGenerator.Implementations
             foreach (var puzzleItem in puzzles)
             {
                 lineNr++;
-                if (lineNr % 10000 == 0)
+                if (lineNr % 10000 == 0 && DateTime.Now.Subtract(lastTime).TotalSeconds >= 5)
                 {
                     logger.LogInformation("processing: {LineNr}", lineNr);
+                    lastTime = DateTime.Now;
                 }
                 processPuzzle(ngramSize, puzzleData, ngramString, ngramDict, puzzleItem);
             }
@@ -90,15 +93,14 @@ namespace AssetGenerator.Implementations
             var newPuzzleData = new ConcurrentDictionary<string, HashSet<string>>();
             logger.LogInformation("Filtering to most effective N-grams from {count}...", puzzleData.Count);
             lineNr = 0;
-            var lastTime = DateTime.Now.Ticks;
             var minimizeThreshold = puzzles.Count / 100;
             foreach (var pair in puzzleData.OrderBy(p => p.Value.Count))
             {
                 lineNr++;
-                if (DateTime.Now.Ticks - lastTime > 5000)
+                if (DateTime.Now.Subtract(lastTime).TotalSeconds >= 5)
                 {
                     logger.LogInformation(" processing: {LineNr}", lineNr);
-                    lastTime = DateTime.Now.Ticks;
+                    lastTime = DateTime.Now;
                 }
                 HashSet<string> set = [.. pair.Value];
                 newPuzzleData[pair.Key] = set;
@@ -121,7 +123,7 @@ namespace AssetGenerator.Implementations
             var crcCountSize = sizeInBytes(puzzles.Max(p => p.Fens.Count));
             var crcSize = (byte)3;
             Directory.CreateDirectory("Output");
-            using (var stream = File.Create("Output/puzzle.nif", 10000000))
+            using (var stream = File.Create("Output/puzzle.nif", 10_000_000))
             {
                 stream.WriteString("NIF");
                 stream.WriteByte(2); // version
@@ -135,6 +137,11 @@ namespace AssetGenerator.Implementations
                 logger.LogInformation("Writing {Count} puzzle ids", puzzles.Count);
                 foreach (var puzzle in puzzles)
                 {
+                    if (DateTime.Now.Subtract(lastTime).TotalSeconds >= 5)
+                    {
+                        logger.LogInformation($" | {stream.Position}", lineNr);
+                        lastTime = DateTime.Now;
+                    }
                     stream.WriteString(puzzle.PuzzleId);
                 }
                 var pos = (int)stream.Position
@@ -143,6 +150,11 @@ namespace AssetGenerator.Implementations
                 logger.LogInformation("Writing {Count} ngrams position and id counts", ngramString.Length - ngramSize + 1);
                 for (var i = 0; i < ngramString.Length - ngramSize + 1; i++)
                 {
+                    if (DateTime.Now.Subtract(lastTime).TotalSeconds >= 5)
+                    {
+                        logger.LogInformation($" | {stream.Position}", lineNr);
+                        lastTime = DateTime.Now;
+                    }
                     stream.WriteUint(pos);
                     var ngram = ngramString.ToString(i, ngramSize);
                     var ngramIdCount = newPuzzleData.TryGetValue(ngram, out HashSet<string>? value) ? value.Count : 0;
@@ -152,6 +164,11 @@ namespace AssetGenerator.Implementations
                 logger.LogInformation("Writing position and CRC counts for {Count} puzzles", puzzles.Count);
                 foreach (var puzzle in puzzles)
                 {
+                    if (DateTime.Now.Subtract(lastTime).TotalSeconds >= 5)
+                    {
+                        logger.LogInformation($" | {stream.Position}", lineNr);
+                        lastTime = DateTime.Now;
+                    }
                     stream.WriteUint(pos);
                     var idCrcCount = (byte)puzzle.Fens.Count;
                     stream.WriteByte(idCrcCount);
@@ -167,6 +184,11 @@ namespace AssetGenerator.Implementations
                     var ngram = ngramString.ToString(i, ngramSize);
                     if (newPuzzleData.TryGetValue(ngram, out HashSet<string> ids))
                     {
+                        if (DateTime.Now.Subtract(lastTime).TotalSeconds >= 5)
+                        {
+                            logger.LogInformation($"Writing ngram {i} ({ids.Count} ids) | {stream.Position}", lineNr);
+                            lastTime = DateTime.Now;
+                        }
                         foreach (var id in ids)
                         {
                             stream.WriteNumber(idDict[id], idIndexSize);
@@ -177,6 +199,11 @@ namespace AssetGenerator.Implementations
                 logger.LogInformation("Writing {Count} puzzle CRCs", puzzles.Count);
                 foreach (var puzzle in puzzles)
                 {
+                    if (DateTime.Now.Subtract(lastTime).TotalSeconds >= 5)
+                    {
+                        logger.LogInformation($" | {stream.Position}", lineNr);
+                        lastTime = DateTime.Now;
+                    }
                     foreach (var fullFen in puzzle.Fens)
                     {
                         var fen = String.Join(" ", fullFen.Split(' ').Take(2));
@@ -272,7 +299,15 @@ namespace AssetGenerator.Implementations
 
 
             var key = lowerCaseEncoder.Encode(obj.PuzzleId);
-            var existing = col.FindOne(x => x.Key == key);
+            DbPuzzleItem existing = null;
+            try
+            {
+                existing = col.FindOne(x => x.Key == key);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Error accessing cache for puzzle {PuzzleId}", obj.PuzzleId);
+            }
             if (existing != null)
             {
                 return existing.ToPuzzleItem();
