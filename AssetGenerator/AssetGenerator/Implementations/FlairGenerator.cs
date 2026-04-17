@@ -28,7 +28,8 @@ namespace AssetGenerator.Implementations
             using (var client = new HttpClient())
             {
                 logger.LogInformation("Generating flairs...");
-                var text = await client.GetStringAsync("https://lichess1.org/assets/flair/list.txt");
+                var sourceFile = "https://raw.githubusercontent.com/lichess-org/lila/refs/heads/master/public/flair/list.txt"; //"https://lichess1.org/assets/flair/list.txt"
+                var text = await client.GetStringAsync(sourceFile);
                 var obj = new
                 {
                     flairs = newLinesRegex().Split(text).Where(s => !String.IsNullOrWhiteSpace(s)).ToList()
