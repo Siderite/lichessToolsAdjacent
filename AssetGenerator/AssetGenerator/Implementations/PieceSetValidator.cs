@@ -38,8 +38,7 @@ namespace AssetGenerator.Implementations
             client.DefaultRequestHeaders.Add("User-Agent", "LiChessToolsAssetGenerator");
             var text = await client.GetStringAsync(sourceFile);
             var data = JsonConvert.DeserializeObject<PieceSetFile>(text);
-            data.pieceSets.InsertRange(0, lichessPieces);
-            data.pieceSets.RemoveAll(ps => ps.duplicate);
+            //data.pieceSets.InsertRange(0, lichessPieces);
 
             var colors = new[] { "w", "b" };
             var pieces = new[] { "p", "n", "b", "r", "q", "k" };
@@ -67,7 +66,7 @@ namespace AssetGenerator.Implementations
                         if (same != null)
                         {
                             imageHash = same.Hash;
-                            if (rnd.Next(24) == 0) // occasionally check if the piece has changed by comparing ETags
+                            if (false && rnd.Next(24) == 0) // occasionally check if the piece has changed by comparing ETags
                             {
                                 try
                                 {
@@ -116,9 +115,16 @@ namespace AssetGenerator.Implementations
                         }
                         if (imageHash != 0)
                         {
+                            var toRemove = new List<PieceHash>();
                             foreach (var existing in hashList.Where(ph => ph.Color == color && ph.Piece == piece))
                             {
                                 if (existing.PieceSetKey.StartsWith(pieceSet.category+"/")) break; // only compare with sets before it in the list
+                                var existingSet = data.pieceSets.Find(ps => ps.key == existing.PieceSetKey);
+                                if (existingSet == null) {
+                                    toRemove.Add(existing);
+                                    continue; 
+                                }
+                                if (existingSet.duplicate) continue;
                                 var similarity = CompareHash.Similarity(imageHash, existing.Hash);
                                 if (!similarities.TryGetValue(existing.PieceSetKey, out var sim))
                                 {
@@ -126,18 +132,29 @@ namespace AssetGenerator.Implementations
                                 }
                                 similarities[existing.PieceSetKey] = sim + (similarity / 12.0); // 6 pieces per color
                             }
+                            hashList.RemoveAll(toRemove.Contains);
+                            pieceSet.hashes[$"{color}{piece}"] = imageHash;
                         }
                     }
                 }
                 var serializedHashList = JsonConvert.SerializeObject(hashList, Newtonsoft.Json.Formatting.Indented);
                 File.WriteAllText(hashFilePath, serializedHashList);
-                var mostSimilar = similarities.OrderByDescending(kv => kv.Value).FirstOrDefault();
+                var mostSimilar = similarities
+                    .OrderByDescending(kv => kv.Value)
+                    .FirstOrDefault();
                 var maxSimilarity = mostSimilar.Value;
                 if (maxSimilarity > 90)
                 {
                     logger.LogWarning("Piece set {pieceSet} is {similarity}% similar to {similarSet}", pieceSet.key, maxSimilarity, mostSimilar.Key);
                 }
             }
+            string pieceSetsWithHashesJson = JsonConvert.SerializeObject(data, new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                Formatting = Newtonsoft.Json.Formatting.Indented,
+                DefaultValueHandling = DefaultValueHandling.Ignore
+            });
+            File.WriteAllText("Output/pieceSetsWithHashes.json", pieceSetsWithHashesJson);
         }
 
         private async Task<string> GetEtag(string rawUrl)
@@ -253,6 +270,10 @@ namespace AssetGenerator.Implementations
             public string type { get; set; }
             public string cap { get; set; }
             public bool duplicate { get; set; }
+
+            public Dictionary<string, ulong> hashes { get; set; }= [];
+
+            [JsonIgnore]
             public string key => $"{category}/{name}";
         }
 
