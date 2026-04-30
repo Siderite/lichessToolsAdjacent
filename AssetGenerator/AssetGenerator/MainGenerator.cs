@@ -13,6 +13,7 @@ namespace AssetGenerator
     /// <param name="openingGenerator"></param>
     /// <param name="translationGenerator"></param>
     /// <param name="puzzleGenerator"></param>
+    /// <param name="pieceSetValidator"></param>
     public class MainGenerator(
 #pragma warning disable CS9113 // Parameter is unread.
         ICountryGenerator countryGenerator,
@@ -22,7 +23,8 @@ namespace AssetGenerator
         IWikiGenerator wikiGenerator,
         IOpeningGenerator openingGenerator,
         ITranslationGenerator translationGenerator,
-        IPuzzleGenerator puzzleGenerator
+        IPuzzleGenerator puzzleGenerator,
+        IPieceSetValidator pieceSetValidator
 #pragma warning restore CS9113 // Parameter is unread.
             )
     {
@@ -50,6 +52,7 @@ namespace AssetGenerator
                         }
                     }
                 ),
+                pieceSetValidator.Validate(),
                 // Miscellaneous one shots
                 //gambitGenerator.RankGambits()
             };

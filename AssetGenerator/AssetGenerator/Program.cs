@@ -32,6 +32,7 @@ namespace AssetGenerator
                 .AddSingleton<ITranslationGenerator, TranslationGenerator>()
                 .AddSingleton<IPuzzleGenerator, PuzzleGenerator>()
                 .AddSingleton<IIconGenerator, IconGenerator>()
+                .AddSingleton<IPieceSetValidator, PieceSetValidator>()
 
                 .AddSingleton<IChessManager,ChessManager>()
                 .AddSingleton<ICrowdinDownloader, CrowdinDownloader>()

@@ -1,3 +1,9 @@
+[Event "Queen's Pawn Game: Levitsky Attack, Hodgson Gambit (YoussefMX7KILLER)"]
+1.d4 d5 2.Bg5 f6 3.Bh4 g5 4.e4
+
+[Event "Bishop's Opening: Boi Variation, Boi Gambit (Will Graif)"]
+1.e4 e5 2.Bc4 Bc5 3.Qh5 Qf6 4.Nc3
+
 [Event "Sicilian Defense: Nyezhmetdinov-Rossolimo Attack, Voidstrike Gambit (TintasKingTR)"]
 1.e4 c5 2.Nf3 Nc6 3.Bb5 e6 4.O-O Nge7 5.Re1 a6 6.Bxc6 Nxc6 7.d4 cxd4 8.Nxd4 Qc7 9.Nf5
 
