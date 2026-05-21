@@ -51,10 +51,11 @@ namespace AssetGenerator.Implementations
             }
             var hasher = new DifferenceHash();
             var rnd = new Random();
+            var allSimilarities = new Dictionary<string, Dictionary<string, double>>();
             foreach (var pieceSet in data.pieceSets)
             {
                 var similarities = new Dictionary<string, double>();
-                logger.LogInformation(" ... validating {pieceSet}", pieceSet.key);
+                //logger.LogInformation(" ... validating {pieceSet}", pieceSet.key);
                 foreach (var piece in pieces)
                 {
                     foreach (var color in colors)
@@ -145,9 +146,24 @@ namespace AssetGenerator.Implementations
                 var maxSimilarity = mostSimilar.Value;
                 if (maxSimilarity > 90)
                 {
-                    logger.LogWarning("Piece set {pieceSet} is {similarity}% similar to {similarSet}", pieceSet.key, maxSimilarity, mostSimilar.Key);
+                    var color = "";
+                    if (maxSimilarity > 99)
+                    {
+                        color = "\x1B[31m"; // red
+                    }
+                    else if (maxSimilarity > 97)
+                    {
+                        color = "\x1B[38;5;214m"; // orange
+                    }
+                    else if (maxSimilarity > 95)
+                    {
+                        color = "\x1B[33m"; // yellow
+                    }
+                    logger.LogWarning(color+"Piece set {pieceSet} is {similarity:0.##}% similar to {similarSet}\x1B[39m\x1B[22m", pieceSet.key, maxSimilarity, mostSimilar.Key);
                 }
+                allSimilarities[pieceSet.key] = similarities;
             }
+            compute2DCoordinates(data.pieceSets, allSimilarities);
             string pieceSetsWithHashesJson = JsonConvert.SerializeObject(data, new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore,
@@ -155,6 +171,163 @@ namespace AssetGenerator.Implementations
                 DefaultValueHandling = DefaultValueHandling.Ignore
             });
             File.WriteAllText("Output/pieceSetsWithHashes.json", pieceSetsWithHashesJson);
+        }
+
+        private static void compute2DCoordinates(List<PieceSet> pieceSets, Dictionary<string, Dictionary<string, double>> allSimilarities)
+        {
+            if (pieceSets == null || pieceSets.Count == 0) return;
+
+            int N = pieceSets.Count;
+            var ids = pieceSets.Select(p => p.key).ToList();
+
+            double GetSimilarity(string a, string b)
+            {
+                if (a == b) return 100.0;
+                if (allSimilarities.TryGetValue(a, out var innerA) && innerA.TryGetValue(b, out var sim))
+                    return sim;
+                if (allSimilarities.TryGetValue(b, out var innerB) && innerB.TryGetValue(a, out sim))
+                    return sim;
+                return 0.0;
+            }
+
+            double GetDistance(string a, string b) => 100.0 - GetSimilarity(a, b);
+
+            // Find A, B, C
+            string A = null, B = null, C = null;
+            double maxD = -1.0;
+
+            for (int i = 0; i < ids.Count; i++)
+            {
+                for (int j = i + 1; j < ids.Count; j++)
+                {
+                    double d = GetDistance(ids[i], ids[j]);
+                    if (d > maxD)
+                    {
+                        maxD = d;
+                        A = ids[i];
+                        B = ids[j];
+                    }
+                }
+            }
+
+            if (A == null || B == null) return;
+
+            double maxSum = -1.0;
+            foreach (var id in ids)
+            {
+                if (id == A || id == B) continue;
+                double sum = GetDistance(A, id) + GetDistance(B, id);
+                if (sum > maxSum)
+                {
+                    maxSum = sum;
+                    C = id;
+                }
+            }
+
+            var pieceDict = pieceSets.ToDictionary(p => p.key);
+
+            // Grid size: 0..N-1
+            int maxCoord = N - 1;
+
+            // Place anchors on grid
+            if (pieceDict.TryGetValue(A, out var pa)) { pa.coordinates.x = 0; pa.coordinates.y = 0; }
+            if (pieceDict.TryGetValue(B, out var pb)) { pb.coordinates.x = maxCoord; pb.coordinates.y = 0; }
+            if (C != null && pieceDict.TryGetValue(C, out var pc)) { pc.coordinates.x = 0; pc.coordinates.y = maxCoord; }
+
+            if (N <= 3) return;
+
+            double dAB = GetDistance(A, B);
+            double dAC = GetDistance(A, C);
+
+            // Compute ideal continuous position + score for sorting
+            var candidates = new List<(PieceSet piece, double idealX, double idealY, double score)>();
+
+            foreach (var id in ids)
+            {
+                if (id == A || id == B || id == C) continue;
+
+                if (!pieceDict.TryGetValue(id, out var piece)) continue;
+
+                double dAP = GetDistance(A, id);
+                double dBP = GetDistance(B, id);
+                double dCP = GetDistance(C, id);
+
+                double idealX = 0.0;
+                if (dAB > 0)
+                    idealX = (dAP * dAP + dAB * dAB - dBP * dBP) / (2.0 * dAB * dAB);
+
+                double idealY = 0.0;
+                if (dAC > 0)
+                    idealY = (dAP * dAP + dAC * dAC - dCP * dCP) / (2.0 * dAC * dAC);
+
+                // Score = how "far" from center in distance space (helps spread)
+                double score = dAP + dBP + dCP;
+
+                candidates.Add((piece, idealX, idealY, score));
+            }
+
+            // Sort by score descending (farther first)
+            candidates.Sort((a, b) => b.score.CompareTo(a.score));
+
+            var occupied = new HashSet<(int x, int y)>();
+            occupied.Add((0, 0));
+            occupied.Add((maxCoord, 0));
+            if (C != null) occupied.Add((0, maxCoord));
+
+            // Place each piece on nearest available grid cell to its ideal position
+            foreach (var (piece, idealX, idealY, _) in candidates)
+            {
+                int targetX = (int)Math.Round(idealX * maxCoord);
+                int targetY = (int)Math.Round(idealY * maxCoord);
+
+                // Search in spiral / increasing distance from target for free cell
+                bool placed = false;
+                for (int radius = 0; radius < N && !placed; radius++)
+                {
+                    for (int dx = -radius; dx <= radius; dx++)
+                    {
+                        for (int dy = -radius; dy <= radius; dy++)
+                        {
+                            if (Math.Abs(dx) == radius || Math.Abs(dy) == radius) // border of square
+                            {
+                                int gx = Math.Clamp(targetX + dx, 0, maxCoord);
+                                int gy = Math.Clamp(targetY + dy, 0, maxCoord);
+
+                                if (!occupied.Contains((gx, gy)))
+                                {
+                                    piece.coordinates.x = gx;
+                                    piece.coordinates.y = gy;
+                                    occupied.Add((gx, gy));
+                                    placed = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (placed) break;
+                    }
+                    if (placed) break;
+                }
+
+                if (!placed)
+                {
+                    // fallback: find any free spot
+                    for (int gx = 0; gx <= maxCoord; gx++)
+                    {
+                        for (int gy = 0; gy <= maxCoord; gy++)
+                        {
+                            if (!occupied.Contains((gx, gy)))
+                            {
+                                piece.coordinates.x = gx;
+                                piece.coordinates.y = gy;
+                                occupied.Add((gx, gy));
+                                placed = true;
+                                break;
+                            }
+                        }
+                        if (placed) break;
+                    }
+                }
+            }
         }
 
         private async Task<string> GetEtag(string rawUrl)
@@ -271,10 +444,20 @@ namespace AssetGenerator.Implementations
             public string cap { get; set; }
             public bool duplicate { get; set; }
 
-            public Dictionary<string, ulong> hashes { get; set; }= [];
+            public Dictionary<string, ulong> hashes { get; set; } = [];
+            public PieceSetCoordinates coordinates { get; set; } = new();
 
             [JsonIgnore]
             public string key => $"{category}/{name}";
+
+        }
+
+        private class PieceSetCoordinates
+        {
+            [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
+            public int x { get; set; }
+            [JsonProperty(DefaultValueHandling = DefaultValueHandling.Include)]
+            public int y { get; set; }
         }
 
         private class PieceHash
