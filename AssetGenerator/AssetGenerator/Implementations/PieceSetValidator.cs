@@ -173,24 +173,22 @@ namespace AssetGenerator.Implementations
             File.WriteAllText("Output/pieceSetsWithHashes.json", pieceSetsWithHashesJson);
         }
 
-        private static void compute2DCoordinates(List<PieceSet> pieceSets, Dictionary<string, Dictionary<string, double>> allSimilarities)
+        private void compute2DCoordinates(List<PieceSet> pieceSets, Dictionary<string, Dictionary<string, double>> allSimilarities)
         {
             if (pieceSets == null || pieceSets.Count == 0) return;
 
             int N = pieceSets.Count;
             var ids = pieceSets.Select(p => p.key).ToList();
 
-            double GetSimilarity(string a, string b)
+            double GetDistance(string a, string b)
             {
-                if (a == b) return 100.0;
+                if (a == b) return 0.0;
                 if (allSimilarities.TryGetValue(a, out var innerA) && innerA.TryGetValue(b, out var sim))
-                    return sim;
+                    return 100-sim;
                 if (allSimilarities.TryGetValue(b, out var innerB) && innerB.TryGetValue(a, out sim))
-                    return sim;
-                return 0.0;
+                    return 100-sim;
+                return 1000.0;
             }
-
-            double GetDistance(string a, string b) => 100.0 - GetSimilarity(a, b);
 
             // Find A, B, C
             string A = null, B = null, C = null;
@@ -226,10 +224,9 @@ namespace AssetGenerator.Implementations
 
             var pieceDict = pieceSets.ToDictionary(p => p.key);
 
-            // Grid size: 0..N-1
             int maxCoord = N - 1;
 
-            // Place anchors on grid
+            // Place anchors
             if (pieceDict.TryGetValue(A, out var pa)) { pa.coordinates.x = 0; pa.coordinates.y = 0; }
             if (pieceDict.TryGetValue(B, out var pb)) { pb.coordinates.x = maxCoord; pb.coordinates.y = 0; }
             if (C != null && pieceDict.TryGetValue(C, out var pc)) { pc.coordinates.x = 0; pc.coordinates.y = maxCoord; }
@@ -239,13 +236,12 @@ namespace AssetGenerator.Implementations
             double dAB = GetDistance(A, B);
             double dAC = GetDistance(A, C);
 
-            // Compute ideal continuous position + score for sorting
-            var candidates = new List<(PieceSet piece, double idealX, double idealY, double score)>();
+            // Compute ideal continuous coordinates
+            var points = new List<(PieceSet piece, double idealX, double idealY)>();
 
             foreach (var id in ids)
             {
                 if (id == A || id == B || id == C) continue;
-
                 if (!pieceDict.TryGetValue(id, out var piece)) continue;
 
                 double dAP = GetDistance(A, id);
@@ -260,73 +256,44 @@ namespace AssetGenerator.Implementations
                 if (dAC > 0)
                     idealY = (dAP * dAP + dAC * dAC - dCP * dCP) / (2.0 * dAC * dAC);
 
-                // Score = how "far" from center in distance space (helps spread)
-                double score = dAP + dBP + dCP;
-
-                candidates.Add((piece, idealX, idealY, score));
+                points.Add((piece, idealX, idealY));
             }
 
-            // Sort by score descending (farther first)
-            candidates.Sort((a, b) => b.score.CompareTo(a.score));
+            // === Sort-based grid assignment (preserves order on both axes) ===
 
-            var occupied = new HashSet<(int x, int y)>();
-            occupied.Add((0, 0));
-            occupied.Add((maxCoord, 0));
-            if (C != null) occupied.Add((0, maxCoord));
-
-            // Place each piece on nearest available grid cell to its ideal position
-            foreach (var (piece, idealX, idealY, _) in candidates)
+            // 1. Sort by ideal X → assign X grid positions 0..N-3 (leaving anchors)
+            var sortedByX = points.OrderBy(p => p.idealX).ToList();
+            for (int i = 0; i < sortedByX.Count; i++)
             {
-                int targetX = (int)Math.Round(idealX * maxCoord);
-                int targetY = (int)Math.Round(idealY * maxCoord);
+                sortedByX[i].piece.coordinates.x = i + 1;   // leave column 0 mostly for A and C
+            }
 
-                // Search in spiral / increasing distance from target for free cell
-                bool placed = false;
-                for (int radius = 0; radius < N && !placed; radius++)
-                {
-                    for (int dx = -radius; dx <= radius; dx++)
-                    {
-                        for (int dy = -radius; dy <= radius; dy++)
-                        {
-                            if (Math.Abs(dx) == radius || Math.Abs(dy) == radius) // border of square
-                            {
-                                int gx = Math.Clamp(targetX + dx, 0, maxCoord);
-                                int gy = Math.Clamp(targetY + dy, 0, maxCoord);
+            // 2. Sort by ideal Y → assign Y grid positions 0..N-3
+            var sortedByY = points.OrderBy(p => p.idealY).ToList();
+            for (int i = 0; i < sortedByY.Count; i++)
+            {
+                sortedByY[i].piece.coordinates.y = i + 1;   // leave row 0 mostly for A and B
+            }
 
-                                if (!occupied.Contains((gx, gy)))
-                                {
-                                    piece.coordinates.x = gx;
-                                    piece.coordinates.y = gy;
-                                    occupied.Add((gx, gy));
-                                    placed = true;
-                                    break;
-                                }
-                            }
-                        }
-                        if (placed) break;
-                    }
-                    if (placed) break;
-                }
+            // === Remove empty rows and columns + compact the grid ===
+            var allX = pieceSets.Select(p => p.coordinates.x).Distinct().OrderBy(x => x).ToList();
+            var allY = pieceSets.Select(p => p.coordinates.y).Distinct().OrderBy(y => y).ToList();
 
-                if (!placed)
-                {
-                    // fallback: find any free spot
-                    for (int gx = 0; gx <= maxCoord; gx++)
-                    {
-                        for (int gy = 0; gy <= maxCoord; gy++)
-                        {
-                            if (!occupied.Contains((gx, gy)))
-                            {
-                                piece.coordinates.x = gx;
-                                piece.coordinates.y = gy;
-                                occupied.Add((gx, gy));
-                                placed = true;
-                                break;
-                            }
-                        }
-                        if (placed) break;
-                    }
-                }
+            // Create mapping old -> new compact coordinate
+            var xMap = new Dictionary<int, int>();
+            var yMap = new Dictionary<int, int>();
+
+            for (int i = 0; i < allX.Count; i++)
+                xMap[allX[i]] = i;
+
+            for (int i = 0; i < allY.Count; i++)
+                yMap[allY[i]] = i;
+
+            // Apply compacted coordinates
+            foreach (var p in pieceSets)
+            {
+                p.coordinates.x = xMap[p.coordinates.x];
+                p.coordinates.y = yMap[p.coordinates.y];
             }
         }
 
