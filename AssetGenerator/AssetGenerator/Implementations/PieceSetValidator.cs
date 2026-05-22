@@ -153,17 +153,17 @@ namespace AssetGenerator.Implementations
                     }
                     else if (maxSimilarity > 97)
                     {
-                        color = "\x1B[38;5;214m"; // orange
+                        color = "\x1B[33m"; // orange
                     }
                     else if (maxSimilarity > 95)
                     {
-                        color = "\x1B[33m"; // yellow
+                        color = "\x1B[93m"; // yellow
                     }
                     logger.LogWarning(color+"Piece set {pieceSet} is {similarity:0.##}% similar to {similarSet}\x1B[39m\x1B[22m", pieceSet.key, maxSimilarity, mostSimilar.Key);
                 }
                 allSimilarities[pieceSet.key] = similarities;
             }
-            compute2DCoordinates(data.pieceSets, allSimilarities);
+            compute2DCoordinatesMDS(data.pieceSets, allSimilarities);
             string pieceSetsWithHashesJson = JsonConvert.SerializeObject(data, new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore,
@@ -295,6 +295,172 @@ namespace AssetGenerator.Implementations
                 p.coordinates.x = xMap[p.coordinates.x];
                 p.coordinates.y = yMap[p.coordinates.y];
             }
+        }
+
+        private void compute2DCoordinatesMDS(List<PieceSet> pieceSets, Dictionary<string, Dictionary<string, double>> allSimilarities)
+        {
+            int n = pieceSets.Count;
+            if (n == 0) return;
+            if (n == 1)
+            {
+                pieceSets[0].coordinates.x = 0;
+                pieceSets[0].coordinates.y = 0;
+                return;
+            }
+
+            double[,] distances = new double[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    string k1 = pieceSets[i].key;
+                    string k2 = pieceSets[j].key;
+                    double sim = allSimilarities.ContainsKey(k1) && allSimilarities[k1].ContainsKey(k2)
+                        ? allSimilarities[k1][k2] : 0;
+                    distances[i, j] = 100 - sim;
+                }
+            }
+
+            var coords = SimpleMDS(distances, 2);
+
+            var positions = new List<(double x, double y, int idx)>();
+            for (int i = 0; i < n; i++)
+                positions.Add((coords[i, 0], coords[i, 1], i));
+
+            AssignToGrid(positions, pieceSets);
+        }
+
+        private double[,] SimpleMDS(double[,] dist, int dim)
+        {
+            int n = dist.GetLength(0);
+            double[,] d2 = new double[n, n];
+
+            for (int i = 0; i < n; i++)
+                for (int j = 0; j < n; j++)
+                    d2[i, j] = dist[i, j] * dist[i, j];
+
+            double[] rowMeans = new double[n];
+            double grandMean = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++) rowMeans[i] += d2[i, j];
+                rowMeans[i] /= n;
+                grandMean += rowMeans[i];
+            }
+            grandMean /= n;
+
+            double[,] b = new double[n, n];
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    b[i, j] = -0.5 * (d2[i, j] - rowMeans[i] - rowMeans[j] + grandMean);
+                }
+            }
+
+            var evd = new Accord.Math.Decompositions.EigenvalueDecomposition(b);
+            var eigenvalues = evd.RealEigenvalues;
+            var eigenvectors = evd.Eigenvectors;
+
+            double[,] result = new double[n, dim];
+
+            double maxScale = 0;
+            for (int d = 0; d < dim; d++)
+            {
+                if (eigenvalues[d] > 1e-8)
+                {
+                    double scale = Math.Sqrt(eigenvalues[d]);
+                    maxScale = Math.Max(maxScale, scale);
+                    for (int i = 0; i < n; i++)
+                    {
+                        result[i, d] = eigenvectors[i, d] * scale;
+                    }
+                }
+            }
+
+            if (maxScale < 1e-8)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    result[i, 0] = i % 10;
+                    result[i, 1] = i / 10;
+                }
+            }
+
+            return result;
+        }
+
+        private void AssignToGrid(List<(double x, double y, int idx)> positions, List<PieceSet> pieceSets)
+        {
+            if (positions.Count == 0) return;
+
+            double maxAbs = 0;
+            foreach (var p in positions)
+            {
+                maxAbs = Math.Max(maxAbs, Math.Abs(p.x));
+                maxAbs = Math.Max(maxAbs, Math.Abs(p.y));
+            }
+            if (maxAbs < 1e-8) maxAbs = 1;
+
+            int n = positions.Count;
+            int gridSize = (int)Math.Ceiling(Math.Sqrt(n)) + 4;
+
+            var occupied = new HashSet<(int, int)>();
+            positions.Sort((a, b) => (a.x * a.x + a.y * a.y).CompareTo(b.x * b.x + b.y * b.y));
+
+            foreach (var p in positions)
+            {
+                double scaledX = p.x / maxAbs * (gridSize / 3.0);
+                double scaledY = p.y / maxAbs * (gridSize / 3.0);
+
+                int cx = (int)Math.Round(scaledX);
+                int cy = (int)Math.Round(scaledY);
+
+                (int x, int y) best = FindNearestFreeCell(cx, cy, occupied, gridSize);
+
+                pieceSets[p.idx].coordinates.x = best.x;
+                pieceSets[p.idx].coordinates.y = best.y;
+                occupied.Add(best);
+            }
+        }
+
+        private (int x, int y) FindNearestFreeCell(int cx, int cy, HashSet<(int, int)> occupied, int gridSize)
+        {
+            int bestDist = int.MaxValue;
+            (int x, int y) bestPos = (cx, cy);
+
+            for (int radius = 0; radius <= gridSize; radius++)
+            {
+                for (int dx = -radius; dx <= radius; dx++)
+                {
+                    for (int dy = -radius; dy <= radius; dy++)
+                    {
+                        if (Math.Abs(dx) == radius || Math.Abs(dy) == radius)
+                        {
+                            int tx = Math.Max(0, cx + dx);
+                            int ty = Math.Max(0, cy + dy);
+
+                            if (tx >= gridSize) tx = gridSize - 1;
+                            if (ty >= gridSize) ty = gridSize - 1;
+
+                            if (!occupied.Contains((tx, ty)))
+                            {
+                                int dist = dx * dx + dy * dy;
+                                if (dist < bestDist)
+                                {
+                                    bestDist = dist;
+                                    bestPos = (tx, ty);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if (bestDist < int.MaxValue) break;
+            }
+
+            return bestPos;
         }
 
         private async Task<string> GetEtag(string rawUrl)
