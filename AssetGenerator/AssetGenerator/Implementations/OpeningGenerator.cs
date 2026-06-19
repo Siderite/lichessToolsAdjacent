@@ -66,7 +66,7 @@ namespace AssetGenerator.Implementations
                 }
             }
 
-            addToOpenings(openings, "https://github.com/kentdjb/pgn-extract/raw/refs/heads/main/eco.pgn");
+            addToOpenings(openings, "https://github.com/kentdjb/pgn-extract/raw/refs/heads/main/eco.pgn"+"?x="+new Random().Next());
 
             addToOpenings(openings, "Data/additionalOpenings.pgn");
             addToOpenings(openings, "Data/GambitsForBlack.pgn");

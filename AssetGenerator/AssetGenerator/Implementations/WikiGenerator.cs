@@ -66,7 +66,7 @@ namespace AssetGenerator
                 //File.Delete("wiki.json");
                 while (true)
                 {
-                    var json = await client.GetStringAsync(url);
+                    var json = await client.GetStringAsync(url+"&x="+new Random().Next());
                     //File.AppendAllText("wiki.json", json + "\r\n\r\n");
                     var search = JsonConvert.DeserializeObject<SearchModel>(json);
                     if (search.error != null)

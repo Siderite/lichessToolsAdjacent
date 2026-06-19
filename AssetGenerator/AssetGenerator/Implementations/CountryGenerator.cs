@@ -29,6 +29,7 @@ namespace AssetGenerator.Implementations
         {
             logger.LogInformation("Generating countries...");
             var url = "https://raw.githubusercontent.com/lichess-org/lila/refs/heads/master/modules/user/src/main/Flags.scala";
+            url += "?x="+new Random().Next();
             using (var client = new HttpClient())
             {
                 var text = await client.GetStringAsync(url);

@@ -34,6 +34,7 @@ namespace AssetGenerator.Implementations
             logger.LogInformation("Validating piece sets...");
 
             var sourceFile = "https://github.com/Siderite/lichessTools/raw/refs/heads/master/data/pieceSets.json";
+            sourceFile += "?x="+new Random().Next();
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("User-Agent", "LiChessToolsAssetGenerator");
             var text = await client.GetStringAsync(sourceFile);
@@ -49,11 +50,12 @@ namespace AssetGenerator.Implementations
                 var serializedHashList = File.ReadAllText(hashFilePath);
                 hashList = JsonConvert.DeserializeObject<List<PieceHash>>(serializedHashList);
             }
-            var hasher = new DifferenceHash();
+            var hasher = new PerceptualHash();
             var rnd = new Random();
             var allSimilarities = new Dictionary<string, Dictionary<string, double>>();
             foreach (var pieceSet in data.pieceSets)
             {
+                var loggedLoading = false;
                 var similarities = new Dictionary<string, double>();
                 //logger.LogInformation(" ... validating {pieceSet}", pieceSet.key);
                 foreach (var piece in pieces)
@@ -61,13 +63,13 @@ namespace AssetGenerator.Implementations
                     foreach (var color in colors)
                     {
                         var url = GetPieceUrl(pieceSet, piece, color);
-                        ulong imageHash = 0;
+                        ulong? imageHash = null;
                         var same = hashList.Find(ph => ph.PieceSetKey == pieceSet.key && ph.Color == color && ph.Piece == piece);
                         string etag = null;
                         if (same != null)
                         {
                             imageHash = same.Hash;
-                            if (false && rnd.Next(24) == 0) // occasionally check if the piece has changed by comparing ETags
+                            if (piece==pieces[0] && color == colors[0] && rnd.Next(24) == 0) // occasionally check if the piece has changed by comparing ETags
                             {
                                 try
                                 {
@@ -91,8 +93,13 @@ namespace AssetGenerator.Implementations
                                 }
                             }
                         }
-                        if (same == null)
+                        if (same?.Hash is null)
                         {
+                            if (!loggedLoading)
+                            {
+                                logger.LogInformation(" ... loading {pieceSet}", pieceSet.key);
+                                loggedLoading = true;
+                            }
                             byte[] bytes = null;
                             try
                             {
@@ -107,14 +114,14 @@ namespace AssetGenerator.Implementations
 
                                 using var image = LoadImageBytes(bytes, pieceSet.type);
                                 imageHash = hasher.Hash(image);
-                                hashList.Add(new PieceHash { Hash = imageHash, PieceSetKey = pieceSet.key, Color = color, Piece = piece, ETag = etag });
+                                hashList.Add(new PieceHash { Hash = imageHash.Value, PieceSetKey = pieceSet.key, Color = color, Piece = piece, ETag = etag });
                             }
                             catch (Exception ex)
                             {
                                 logger.LogError(ex, "Error getting piece {piece} for color {color} for set {pieceSet}", piece, color, pieceSet.key);
                             }
                         }
-                        if (imageHash != 0)
+                        if (imageHash is not null)
                         {
                             var toRemove = new List<PieceHash>();
                             foreach (var existing in hashList.Where(ph => ph.Color == color && ph.Piece == piece))
@@ -126,7 +133,8 @@ namespace AssetGenerator.Implementations
                                     continue; 
                                 }
                                 if (existingSet.duplicate) continue;
-                                var similarity = CompareHash.Similarity(imageHash, existing.Hash);
+                                if (existing.Hash is null) continue;
+                                var similarity = CompareHash.Similarity(imageHash.Value, existing.Hash.Value);
                                 if (!similarities.TryGetValue(existing.PieceSetKey, out var sim))
                                 {
                                     sim = 0;
@@ -134,7 +142,7 @@ namespace AssetGenerator.Implementations
                                 similarities[existing.PieceSetKey] = sim + (similarity / 12.0); // 6 pieces per color
                             }
                             hashList.RemoveAll(toRemove.Contains);
-                            pieceSet.hashes[$"{color}{piece}"] = imageHash;
+                            pieceSet.hashes[$"{color}{piece}"] = imageHash.Value;
                         }
                     }
                 }
@@ -595,7 +603,7 @@ namespace AssetGenerator.Implementations
 
         private class PieceHash
         {
-            public ulong Hash { get; set; }
+            public ulong? Hash { get; set; }
             public string PieceSetKey { get; set; }
             public string Color { get; set; }
             public string Piece { get; set; }

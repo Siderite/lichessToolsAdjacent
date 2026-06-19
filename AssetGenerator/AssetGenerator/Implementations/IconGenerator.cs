@@ -30,7 +30,7 @@ namespace AssetGenerator.Implementations
             using (var client = new HttpClient())
             {
                 logger.LogInformation("Generating icon files...");
-                var text = await client.GetStringAsync(_sfdFileUrl);
+                var text = await client.GetStringAsync(_sfdFileUrl+"?x="+new Random().Next());
                 Directory.CreateDirectory("Output");
 
                 File.Delete(jsIconsFile);

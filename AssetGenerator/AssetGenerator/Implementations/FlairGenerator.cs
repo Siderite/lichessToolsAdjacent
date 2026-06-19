@@ -29,6 +29,7 @@ namespace AssetGenerator.Implementations
             {
                 logger.LogInformation("Generating flairs...");
                 var sourceFile = "https://raw.githubusercontent.com/lichess-org/lila/refs/heads/master/public/flair/list.txt"; //"https://lichess1.org/assets/flair/list.txt"
+                sourceFile += "?x="+new Random().Next();
                 var text = await client.GetStringAsync(sourceFile);
                 var obj = new
                 {
