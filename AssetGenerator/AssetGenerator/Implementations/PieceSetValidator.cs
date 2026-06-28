@@ -9,6 +9,7 @@ using SixLabors.ImageSharp.Processing;
 using Svg;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
@@ -31,15 +32,16 @@ namespace AssetGenerator.Implementations
         /// Only the piece sets with cap set will be validated.</remarks>
         public async Task Validate()
         {
-            logger.LogInformation("Validating piece sets...");
+            logger.LogInformation("Processing piece sets...");
 
             var sourceFile = "https://github.com/Siderite/lichessTools/raw/refs/heads/master/data/pieceSets.json";
-            sourceFile += "?x="+new Random().Next();
+            sourceFile += "?x=" + new Random().Next();
             using var client = new HttpClient();
             client.DefaultRequestHeaders.Add("User-Agent", "LiChessToolsAssetGenerator");
             var text = await client.GetStringAsync(sourceFile);
             var data = JsonConvert.DeserializeObject<PieceSetFile>(text);
-            //data.pieceSets.InsertRange(0, lichessPieces);
+
+            logger.LogInformation($"  ... {data.pieceSets.Count} piece sets found");
 
             var colors = new[] { "w", "b" };
             var pieces = new[] { "p", "n", "b", "r", "q", "k" };
@@ -50,7 +52,8 @@ namespace AssetGenerator.Implementations
                 var serializedHashList = File.ReadAllText(hashFilePath);
                 hashList = JsonConvert.DeserializeObject<List<PieceHash>>(serializedHashList);
             }
-            var hasher = new PerceptualHash();
+            var hasher1 = new PerceptualHash();
+            var hasher2 = new DifferenceHash();
             var rnd = new Random();
             var allSimilarities = new Dictionary<string, Dictionary<string, double>>();
             foreach (var pieceSet in data.pieceSets)
@@ -63,13 +66,13 @@ namespace AssetGenerator.Implementations
                     foreach (var color in colors)
                     {
                         var url = GetPieceUrl(pieceSet, piece, color);
-                        ulong? imageHash = null;
+                        byte[] imageHash = null;
                         var same = hashList.Find(ph => ph.PieceSetKey == pieceSet.key && ph.Color == color && ph.Piece == piece);
                         string etag = null;
                         if (same != null)
                         {
                             imageHash = same.Hash;
-                            if (piece==pieces[0] && color == colors[0] && rnd.Next(24) == 0) // occasionally check if the piece has changed by comparing ETags
+                            if (piece == pieces[0] && color == colors[0] && rnd.Next(24) == 0) // occasionally check if the piece has changed by comparing ETags
                             {
                                 try
                                 {
@@ -113,8 +116,8 @@ namespace AssetGenerator.Implementations
                                 etag = response.Headers.ETag?.Tag;
 
                                 using var image = LoadImageBytes(bytes, pieceSet.type);
-                                imageHash = hasher.Hash(image);
-                                hashList.Add(new PieceHash { Hash = imageHash.Value, PieceSetKey = pieceSet.key, Color = color, Piece = piece, ETag = etag });
+                                imageHash = BitConverter.GetBytes(hasher1.Hash(image)).Concat(BitConverter.GetBytes(hasher2.Hash(image))).ToArray();
+                                hashList.Add(new PieceHash { Hash = imageHash, PieceSetKey = pieceSet.key, Color = color, Piece = piece, ETag = etag });
                             }
                             catch (Exception ex)
                             {
@@ -126,15 +129,19 @@ namespace AssetGenerator.Implementations
                             var toRemove = new List<PieceHash>();
                             foreach (var existing in hashList.Where(ph => ph.Color == color && ph.Piece == piece))
                             {
-                                if (existing.PieceSetKey.StartsWith(pieceSet.category+"/")) break; // only compare with sets before it in the list
+                                if (existing.PieceSetKey.StartsWith(pieceSet.category + "/")) break; // only compare with sets before it in the list
                                 var existingSet = data.pieceSets.Find(ps => ps.key == existing.PieceSetKey);
-                                if (existingSet == null) {
+                                if (existingSet == null)
+                                {
                                     toRemove.Add(existing);
-                                    continue; 
+                                    continue;
                                 }
                                 if (existingSet.duplicate) continue;
                                 if (existing.Hash is null) continue;
-                                var similarity = CompareHash.Similarity(imageHash.Value, existing.Hash.Value);
+                                var similarity = (
+                                    CompareHash.Similarity([.. imageHash.Take(8)], [.. existing.Hash.Take(8)]) +
+                                    CompareHash.Similarity([.. imageHash.Skip(8).Take(8)], [.. existing.Hash.Skip(8).Take(8)]))
+                                    / 2;
                                 if (!similarities.TryGetValue(existing.PieceSetKey, out var sim))
                                 {
                                     sim = 0;
@@ -142,7 +149,7 @@ namespace AssetGenerator.Implementations
                                 similarities[existing.PieceSetKey] = sim + (similarity / 12.0); // 6 pieces per color
                             }
                             hashList.RemoveAll(toRemove.Contains);
-                            pieceSet.hashes[$"{color}{piece}"] = imageHash.Value;
+                            pieceSet.hashes[$"{color}{piece}"] = imageHash;
                         }
                     }
                 }
@@ -167,11 +174,11 @@ namespace AssetGenerator.Implementations
                     {
                         color = "\x1B[93m"; // yellow
                     }
-                    logger.LogWarning(color+"Piece set {pieceSet} is {similarity:0.##}% similar to {similarSet}\x1B[39m\x1B[22m", pieceSet.key, maxSimilarity, mostSimilar.Key);
+                    logger.LogWarning(color + "Piece set {pieceSet} is {similarity:0.##}% similar to {similarSet}\x1B[39m\x1B[22m", pieceSet.key, maxSimilarity, mostSimilar.Key);
                 }
                 allSimilarities[pieceSet.key] = similarities;
             }
-            compute2DCoordinatesMDS(data.pieceSets, allSimilarities);
+            compute2DCoordinatesArray(data.pieceSets, allSimilarities);
             string pieceSetsWithHashesJson = JsonConvert.SerializeObject(data, new JsonSerializerSettings
             {
                 NullValueHandling = NullValueHandling.Ignore,
@@ -192,9 +199,9 @@ namespace AssetGenerator.Implementations
             {
                 if (a == b) return 0.0;
                 if (allSimilarities.TryGetValue(a, out var innerA) && innerA.TryGetValue(b, out var sim))
-                    return 100-sim;
+                    return 100 - sim;
                 if (allSimilarities.TryGetValue(b, out var innerB) && innerB.TryGetValue(a, out sim))
-                    return 100-sim;
+                    return 100 - sim;
                 return 1000.0;
             }
 
@@ -336,6 +343,90 @@ namespace AssetGenerator.Implementations
                 positions.Add((coords[i, 0], coords[i, 1], i));
 
             AssignToGrid(positions, pieceSets);
+        }
+
+
+        private void compute2DCoordinatesArray(List<PieceSet> pieceSets, Dictionary<string, Dictionary<string, double>> allSimilarities)
+        {
+            var startKey = "lichess/alpha";
+
+            // Helper to look up similarity regardless of argument order, defaulting if missing
+            double Sim(string a, string b)
+            {
+                if (allSimilarities.TryGetValue(a, out var row) && row.TryGetValue(b, out var s)) return s;
+                if (allSimilarities.TryGetValue(b, out var row2) && row2.TryGetValue(a, out var s2)) return s2;
+                return 0;
+            }
+
+            // Step 1: start the ordered list with the start piece
+            var byKey = pieceSets.ToDictionary(p => p.key);
+            var start = byKey.TryGetValue(startKey, out var sp) ? sp : pieceSets[0];
+            var ordered = new List<PieceSet> { start };
+            var remaining = pieceSets.Where(p => p.key != start.key).ToList();
+            remaining.Sort((a, b) => string.Compare(a.key, b.key, StringComparison.Ordinal));
+
+            // Step 2-4: repeatedly pick the remaining piece that is most similar to the last
+            // item, using similarity to the 2nd-last, 3rd-last, etc. as tie-breakers
+            while (remaining.Count > 0)
+            {
+                PieceSet best = null;
+                double[] bestKeyVec = null;
+
+                foreach (var candidate in remaining)
+                {
+                    // Build comparison key: similarity to ordered[^1], ordered[^2], ... ordered[0]
+                    var keyVec = new double[ordered.Count];
+                    for (int k = 0; k < ordered.Count; k++)
+                        keyVec[k] = Sim(candidate.key, ordered[ordered.Count - 1 - k].key);
+
+                    if (best == null || IsLexGreater(keyVec, bestKeyVec))
+                    {
+                        best = candidate;
+                        bestKeyVec = keyVec;
+                    }
+                }
+
+                ordered.Add(best);
+                remaining.Remove(best);
+            }
+
+            // Step 5: compute grid size N x N and place via anti-diagonal snake order
+            int count = ordered.Count;
+            int N = (int)Math.Ceiling(Math.Sqrt(count));
+
+            var cellOrder = new List<(int row, int col)>();
+            for (int d = 0; d <= 2 * (N - 1); d++)
+            {
+                int rowStart = Math.Max(0, d - N + 1);
+                int rowEnd = Math.Min(d, N - 1);
+                var diagCells = new List<(int row, int col)>();
+                for (int row = rowStart; row <= rowEnd; row++)
+                    diagCells.Add((row, d - row));
+
+                // Alternate direction each diagonal so the path is continuous (0,0 -> N,N)
+                if (d % 2 != 0) diagCells.Reverse();
+                cellOrder.AddRange(diagCells);
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                var (row, col) = cellOrder[i];
+                ordered[i].coordinates.x = col;
+                ordered[i].coordinates.y = row;
+            }
+        }
+
+        // Strict lexicographic comparison: returns true if 'a' beats 'b' (higher similarity
+        // at the first differing position, scanning from last-item-similarity backwards)
+        private bool IsLexGreater(double[] a, double[] b)
+        {
+            int len = Math.Min(a.Length, b.Length);
+            for (int i = 0; i < len; i++)
+            {
+                if (a[i] > b[i]) return true;
+                if (a[i] < b[i]) return false;
+            }
+            return false; // fully tied (up to shared length) -> keep current best (first encountered)
         }
 
         private double[,] SimpleMDS(double[,] dist, int dim)
@@ -489,7 +580,7 @@ namespace AssetGenerator.Implementations
             if (type == "svg")
             {
                 var doc = new XmlDocument();
-                doc.LoadXml(Encoding.UTF8.GetString(bytes).Replace("currentColor","#808080"));
+                doc.LoadXml(Encoding.UTF8.GetString(bytes).Replace("currentColor", "#808080"));
                 // Load and rasterize SVG
                 var svgDocument = SvgDocument.Open(doc);
 
@@ -507,7 +598,8 @@ namespace AssetGenerator.Implementations
                 ms = new MemoryStream(bytes);
             }
             var image = Image.Load<Rgba32>(ms);
-            image.Mutate(x => x.Resize(100, 100));
+            //image.Mutate(x => x.Resize(100, 100));
+            image.Mutate(ctx => ctx.BackgroundColor(Color.Gray));
             ms.Dispose();
             return image;
         }
@@ -585,7 +677,7 @@ namespace AssetGenerator.Implementations
             public string cap { get; set; }
             public bool duplicate { get; set; }
 
-            public Dictionary<string, ulong> hashes { get; set; } = [];
+            public Dictionary<string, byte[]> hashes { get; set; } = [];
             public PieceSetCoordinates coordinates { get; set; } = new();
 
             [JsonIgnore]
@@ -603,7 +695,7 @@ namespace AssetGenerator.Implementations
 
         private class PieceHash
         {
-            public ulong? Hash { get; set; }
+            public byte[] Hash { get; set; }
             public string PieceSetKey { get; set; }
             public string Color { get; set; }
             public string Piece { get; set; }
