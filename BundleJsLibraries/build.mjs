@@ -17,3 +17,12 @@ esbuild.build({
   target: ["es2015"],
   outfile: "Output/d3.bundle.mjs",
 });
+
+esbuild.build({
+  entryPoints: ["nouislider-entry.js"],
+  bundle: true,
+  minify: true,
+  format: "esm",
+  target: ["es2015"],
+  outfile: "Output/nouislider.bundle.mjs",
+});
