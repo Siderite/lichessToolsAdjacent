@@ -11,6 +11,7 @@ namespace AssetGenerator.Implementations
     /// <summary>
     /// Generates icons from the Lichess sfd file
     /// </summary>
+    [Obsolete("Lichess removed the icon font system")]
     public class IconGenerator(
           ILogger<IconGenerator> logger
         ) : IIconGenerator

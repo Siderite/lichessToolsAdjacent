@@ -8,7 +8,6 @@ namespace AssetGenerator
     /// <param name="countryGenerator"></param>
     /// <param name="gambitGenerator"></param>
     /// <param name="flairGenerator"></param>
-    /// <param name="iconGenerator"></param>
     /// <param name="wikiGenerator"></param>
     /// <param name="openingGenerator"></param>
     /// <param name="translationGenerator"></param>
@@ -19,7 +18,7 @@ namespace AssetGenerator
         ICountryGenerator countryGenerator,
         IGambitGenerator gambitGenerator,
         IFlairGenerator flairGenerator,
-        IIconGenerator iconGenerator,
+        //IIconGenerator iconGenerator,
         IWikiGenerator wikiGenerator,
         IOpeningGenerator openingGenerator,
         ITranslationGenerator translationGenerator,
@@ -41,7 +40,7 @@ namespace AssetGenerator
                 countryGenerator.Generate(),
                 gambitGenerator.Generate(),
                 flairGenerator.Generate(),
-                iconGenerator.Generate(),
+                //iconGenerator.Generate(),
                 wikiGenerator.Generate(),
                 openingGenerator.Generate(),
                 translationGenerator.Generate(),

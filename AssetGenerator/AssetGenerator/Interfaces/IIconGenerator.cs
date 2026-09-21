@@ -8,6 +8,7 @@ namespace AssetGenerator.Interfaces
     /// Generates icons from the Lichess sfd file
     /// https://github.com/lichess-org/lila/blob/master/public/font/lichess.sfd
     /// </summary>
+    [Obsolete("Lichess removed the icon font system")]
     public interface IIconGenerator
     {
         /// <summary>
