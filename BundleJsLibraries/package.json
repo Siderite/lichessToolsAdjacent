@@ -12,7 +12,10 @@
   "dependencies": {
     "chessops": "^0.15.0",
     "d3": "^7.9.0",
-    "esbuild": "^0.27.3",
+    "esbuild": "^0.28.2",
     "nouislider": "^15.8.1"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
   }
 }
