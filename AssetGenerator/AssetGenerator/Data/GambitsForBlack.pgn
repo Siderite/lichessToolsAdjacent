@@ -1,4 +1,7 @@
-[Event "C44 Scotch Game: Scotch Gambit, Sarratt Variation, Côa Countergambit (mySecretPrep)"]
+[Event "Vienna Game: Vienna Gambit, Madman Countergambit (mySecretPrep)"]
+1.e4 e5 2.f4 Nf6 3.Nc3 exf4 4.e5 Nd5
+
+[Event "Scotch Game: Scotch Gambit, Sarratt Variation, Côa Countergambit (mySecretPrep)"]
 1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.Bc4 Bc5 5.Ng5 Qe7
 
 [Event "Benoni Defense: Cormorant Gambit, Six-seven Gambit (alagosi,ElMilo2009)"]
