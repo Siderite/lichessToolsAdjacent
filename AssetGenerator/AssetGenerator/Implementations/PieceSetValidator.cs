@@ -630,6 +630,29 @@ namespace AssetGenerator.Implementations
                 case "nw":
                     url += $"{piece}{color}.{pieceSet.type}";
                     break;
+                case "WhiteKnight":
+                    {
+                        var fullColor = color == "w" ? "white" : "black";
+                        var fullPiece = fullPieceDict[piece];
+                        var filename = fullColor.Substring(0,1).ToUpper() + fullColor.Substring(1) + fullPiece.Substring(0,1).ToUpper() + fullPiece.Substring(1);
+                        url += filename + "." + pieceSet.type;
+                    }
+                    break;
+                case "white_knight":
+                    {
+                        var fullColor = color == "w" ? "white" : "black";
+                        var fullPiece = fullPieceDict[piece];
+                        var filename = fullColor + "_" + fullPiece;
+                        url+= filename + "." + pieceSet.type;
+                    }
+                    break;
+                case "knight-w":
+                    {
+                        var fullPiece = fullPieceDict[piece];
+                        var filename = fullPiece + "-" + color;
+                        url+= filename + "." + pieceSet.type;
+                    }
+                    break;
                 case "basedpolymer":
                     var key = color + piece;
                     if (pieceSet.name == "ichess")
@@ -656,8 +679,10 @@ namespace AssetGenerator.Implementations
                     url += color + "/" + color + piece + "." + pieceSet.type;
                     break;
                 case "DragurKnight":
-                    var fullPiece = fullPieceDict[piece];
-                    url += color + "_" + fullPiece + "." + pieceSet.type;
+                    {
+                        var fullPiece = fullPieceDict[piece];
+                        url += color + "_" + fullPiece + "." + pieceSet.type;
+                    }
                     break;
             }
             return url;
